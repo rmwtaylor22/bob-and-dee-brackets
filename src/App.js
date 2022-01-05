@@ -9,6 +9,7 @@ import Create from "./components/create";
 import Leaderboard from "./components/leaderboard";
 import Login from "./components/login";
 import Register from "./components/register";
+import edit from "./components/edit";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/" exact component={Leaderboard} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
+          <Route path="/edit/:id" component={Edit} />
         </main>
       </BrowserRouter>
     </div>
