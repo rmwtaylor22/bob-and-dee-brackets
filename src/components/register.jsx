@@ -4,7 +4,7 @@ function Register() {
   return (
     <div>
       <form>
-        <h1 className="h3 mb-3 fw-normal">Register here.</h1>
+        <h1 className="h3 mb-3 fw-normal">Register</h1>
 
         <div className="form-floating">
           <input
