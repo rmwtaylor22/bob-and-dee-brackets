@@ -9,7 +9,7 @@ import Create from "./components/create";
 import Leaderboard from "./components/leaderboard";
 import Login from "./components/login";
 import Register from "./components/register";
-import edit from "./components/edit";
+import Bracket from "./components/bracket";
 
 const App = () => {
   return (
@@ -19,7 +19,8 @@ const App = () => {
         <main>
           <Route path="/" exact component={Leaderboard} />
           <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
+          <Route path="/bracket" component={Bracket} />
+          <Route path="/create" component={Create} />
           <Route path="/edit/:id" component={Edit} />
         </main>
       </BrowserRouter>

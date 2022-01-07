@@ -13,7 +13,7 @@ const Navbar = () => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <NavLink className="navbar-brand" to="/">
-          Bob and Dee Brackets
+          Bob and D <br></br>Brackets
         </NavLink>
         <div>
           <ul className="navbar-nav ml-auto">
@@ -28,8 +28,13 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/register">
+              <Link className="nav-link" to="/create">
                 Register
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/bracket">
+                Bracket
               </Link>
             </li>
           </ul>

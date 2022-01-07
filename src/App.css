@@ -24,3 +24,14 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.leaderboard {
+    width: 100;
+    max-width: 550px;
+    padding: 15px;
+    margin: auto;
+}
+
+.navbar-brand {
+  padding: 15px;
+}

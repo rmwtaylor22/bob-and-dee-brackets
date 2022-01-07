@@ -1,19 +1,20 @@
 import React, { Component } from "react";
 // This will require to npm install axios
-import axios from 'axios';
+import axios from "axios";
 import { Link } from "react-router-dom";
 
-const Record = (props) => (
+const User = (props) => (
   <tr>
-    <td>{props.record.person_name}</td>
-    <td>{props.record.person_position}</td>
-    <td>{props.record.person_level}</td>
+    <td>{props.user.name}</td>
+    <td>{props.user.username}</td>
+    <td>{props.user.password}</td>
+    <td>{props.user.points}</td>
     <td>
-      <Link to={"/edit/" + props.record._id}>Edit</Link> |
+      <Link to={"/edit/" + props.user._id}>Edit</Link> |
       <a
         href="/"
         onClick={() => {
-          props.deleteRecord(props.record._id);
+          props.deleteUser(props.user._id);
         }}
       >
         Delete
@@ -26,61 +27,62 @@ export default class Leaderboard extends Component {
   // This is the constructor that shall store our data retrieved from the database
   constructor(props) {
     super(props);
-    this.deleteRecord = this.deleteRecord.bind(this);
-    this.state = { records: [] };
+    this.deleteUser = this.deleteUser.bind(this);
+    this.state = { users: [] };
   }
 
   // This method will get the data from the database.
   componentDidMount() {
     axios
-      .get("http://localhost:5000/record/")
+      .get("http://localhost:5000/user/")
       .then((response) => {
-        this.setState({ records: response.data });
+        this.setState({ users: response.data });
       })
       .catch(function (error) {
         console.log(error);
       });
   }
 
-  // This method will delete a record based on the method
-  deleteRecord(id) {
+  // This method will delete a user based on the method
+  deleteUser(id) {
     axios.delete("http://localhost:5000/" + id).then((response) => {
       console.log(response.data);
     });
 
     this.setState({
-      record: this.state.records.filter((el) => el._id !== id),
+      user: this.state.users.filter((el) => el._id !== id),
     });
   }
 
   // This method will map out the users on the table
-  recordList() {
-    return this.state.records.map((currentrecord) => {
+  userList() {
+    return this.state.users.map((currentuser) => {
       return (
-        <Record
-          record={currentrecord}
-          deleteRecord={this.deleteRecord}
-          key={currentrecord._id}
+        <User
+          user={currentuser}
+          deleteUser={this.deleteUser}
+          key={currentuser._id}
         />
       );
     });
   }
 
-  // This following section will display the table with the records of individuals.
+  // This following section will display the table with the users of individuals.
   render() {
     return (
-      <div>
-        <h3>Record List</h3>
+      <div className="leaderboard">
+        <h3>Leaderboard</h3>
         <table className="table table-striped" style={{ marginTop: 20 }}>
           <thead>
             <tr>
               <th>Name</th>
-              <th>Position</th>
-              <th>Level</th>
-              <th>Action</th>
+              <th>Username</th>
+              <th>Password</th>
+              <th>Points</th>
+              <th>Actions</th>
             </tr>
           </thead>
-          <tbody>{this.recordList()}</tbody>
+          <tbody>{this.userList()}</tbody>
         </table>
       </div>
     );
