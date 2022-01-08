@@ -9,6 +9,13 @@ import { Link } from "react-router-dom";
 
 // Here, we display our Navbar
 const Navbar = () => {
+
+  const logout = () =>{
+    window.sessionStorage.clear();
+    window.location.reload(false);
+    //window.location.href = baseUr + "login";
+  }
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -31,6 +38,11 @@ const Navbar = () => {
               <Link className="nav-link" to="/bracket">
                 Bracket
               </Link>
+            </li>
+            <li className="nav-item logout">
+            <button className="w-100 btn btn-lg btn-primary" onClick={logout}>
+              Logout
+            </button>
             </li>
           </ul>
         </div>

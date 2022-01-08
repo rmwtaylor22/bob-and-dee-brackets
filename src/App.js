@@ -10,10 +10,11 @@ import Leaderboard from "./components/leaderboard";
 import Login from "./components/login";
 import Register from "./components/register";
 import Bracket from "./components/bracket";
+import useToken from "./useToken";
+
 
 const App = () => {
-
-  const [token, setToken] = useState();
+  const { token, setToken } = useToken();
 
   if(!token) {
     return <Login setToken={setToken} />
