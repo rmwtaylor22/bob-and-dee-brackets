@@ -48,7 +48,9 @@ export default class Create extends Component {
       username: this.state.username,
       password: this.state.password,
     };
+    
 
+    // add user
     axios
       .post("http://localhost:5000/user/add", newperson)
       .then((res) => console.log(res.data));

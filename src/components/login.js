@@ -54,6 +54,7 @@ export default function Login({ setToken }) {
         <button className="w-100 btn btn-lg btn-primary" type="submit">
           Sign in
         </button>
+        <p>Don't have an account?</p>
       </form>
     </div>
   );

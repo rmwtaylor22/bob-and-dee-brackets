@@ -39,6 +39,11 @@ const Navbar = () => {
                 Bracket
               </Link>
             </li>
+            {/* <li className="nav-item">
+              <Link className="nav-link" to="/letsTest">
+                Test
+              </Link>
+            </li> */}
             <li className="nav-item logout">
             <button className="w-100 btn btn-lg btn-primary" onClick={logout}>
               Logout

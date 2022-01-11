@@ -8,9 +8,9 @@ import Edit from "./components/edit";
 import Create from "./components/create";
 import Leaderboard from "./components/leaderboard";
 import Login from "./components/login";
-import Register from "./components/register";
 import Bracket from "./components/bracket";
 import useToken from "./useToken";
+// import LetsTest from "./components/letsTest";
 
 
 const App = () => {
@@ -28,7 +28,7 @@ const App = () => {
           <Route path="/" exact component={Leaderboard} />
           <Route path="/login" component={Login} />
           <Route path="/bracket" component={Bracket} />
-          <Route path="/create" component={Create} />
+          {/* <Route path="/letsTest" component={LetsTest} /> */}
           <Route path="/edit/:id" component={Edit} />
         </main>
       </BrowserRouter>
