@@ -37,6 +37,10 @@
   width:fit-content;
 }
 
+.launch-page-padding {
+  padding-top: 30px;;
+}
+
 .leaderboard {
     width: 100;
     max-width: 550px;
@@ -46,4 +50,12 @@
 
 .navbar-brand {
   padding: 15px;
+}
+
+.or {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  text-align: center;
 }

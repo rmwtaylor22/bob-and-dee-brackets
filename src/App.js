@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "./App.css";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
 // We import all the components we need in our app
 import Navbar from "./components/navbar";
@@ -9,16 +9,20 @@ import Create from "./components/create";
 import Leaderboard from "./components/leaderboard";
 import Login from "./components/login";
 import Bracket from "./components/bracket";
-import useToken from "./useToken";
+//import useToken from "./useToken";
 // import LetsTest from "./components/letsTest";
 
 
 const App = () => {
-  const { token, setToken } = useToken();
+/*   const { token, setToken } = useToken();
 
   if(!token) {
-    return <Login setToken={setToken} />
-  }
+    return <main>
+      <Login setToken={setToken} />
+      <p className="or">or</p>
+      <Create  setToken={setToken} />
+      </main>
+  } */
 
   return (
     <div className="App">
@@ -27,6 +31,7 @@ const App = () => {
         <main>
           <Route path="/" exact component={Leaderboard} />
           <Route path="/login" component={Login} />
+          <Route path="/create" component={Create} />
           <Route path="/bracket" component={Bracket} />
           {/* <Route path="/letsTest" component={LetsTest} /> */}
           <Route path="/edit/:id" component={Edit} />

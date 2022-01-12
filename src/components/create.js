@@ -1,107 +1,76 @@
-import React, { Component } from "react";
-// This will require to npm install axios
-import axios from "axios";
+import React from "react";
+import { useState } from "react";
+import { useHistory } from "react-router";
 
-export default class Create extends Component {
-  // This is the constructor that stores the data.
-  constructor(props) {
-    super(props);
-
-    this.onChangeName = this.onChangeName.bind(this);
-    this.onChangeUsername = this.onChangeUsername.bind(this);
-    this.onChangePassword = this.onChangePassword.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-
-    this.state = {
-      name: "",
-      username: "",
-      password: "",
-    };
-  }
-
-  // These methods will update the state properties.
-  onChangeName(e) {
-    this.setState({
-      name: e.target.value,
-    });
-  }
-
-  onChangeUsername(e) {
-    this.setState({
-      username: e.target.value,
-    });
-  }
-
-  onChangePassword(e) {
-    this.setState({
-      password: e.target.value,
-    });
-  }
-
-  // This function will handle the submission.
-  onSubmit(e) {
-    e.preventDefault();
-
-    // When post request is sent to the create url, axios will add a new user(newperson) to the database.
-    const newperson = {
-      name: this.state.name,
-      username: this.state.username,
-      password: this.state.password,
-    };
-    
-
-    // add user
-    axios
-      .post("http://localhost:5000/user/add", newperson)
-      .then((res) => console.log(res.data));
-
-    // We will empty the state after posting the data to the database
-    this.setState({
-      name: "",
-      username: "",
-      password: "",
-    });
-  }
+function Create() {
+    const history = useHistory()
+    const [name, setName] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+  
+    async function registerUser (event) {
+      event.preventDefault()
+      const response = await fetch('http://localhost:1337/api/user/register', {
+      method: 'POST',  
+      headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          username,
+          password,
+        }),
+      })
+  
+      const data = await response.json()
+  
+      if(data.status === 'ok') {
+        alert('Registered!')
+        history.push('/login')
+      } else {
+        alert('Username already taken :(')
+        setUsername("");
+      }
+    }
 
   // This following section will display the form that takes the input from the user.
-  render() {
     return (
       <div className="form-signin">
-        <form onSubmit={this.onSubmit}>
-          <h1 className="h3 mb-3 fw-normal">Create new account</h1>
+        <form onSubmit={registerUser}>
+          <h1 className="h3 mb-3 fw-normal">Create Account</h1>
           <div className="form-floating">
             <input
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              require
               type="text"
+              placeholder="Name"
               className="form-control"
               id="floatingInput"
-              value={this.state.name}
-              placeholder="Bob White"
-              onChange={this.onChangeName}
-              required
             />
             <label for="floatingInput">Name/ Nickname</label>
           </div>
           <div className="form-floating">
             <input
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              require
               type="text"
+              placeholder="Username"
               className="form-control"
               id="floatingInput"
-              value={this.state.username}
-              placeholder="bwhite"
-              onChange={this.onChangeUsername}
-              required
             />
             <label for="floatingInput">Username</label>
           </div>
           <div className="form-floating">
             <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              require
               type="password"
+              placeholder="Password"
               className="form-control"
               id="floatingInput"
-              value={this.state.password}
-              placeholder="perryWhite123$"
-              onChange={this.onChangePassword}
-              required
             />
             <label for="floatingInput">Password</label>
           </div>
@@ -115,5 +84,6 @@ export default class Create extends Component {
         </form>
       </div>
     );
-  }
 }
+
+export default Create;
