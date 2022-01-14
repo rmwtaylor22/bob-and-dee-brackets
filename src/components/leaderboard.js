@@ -6,20 +6,7 @@ import { Link } from "react-router-dom";
 const User = (props) => (
   <tr>
     <td>{props.user.name}</td>
-    <td>{props.user.username}</td>
-    <td>{props.user.password}</td>
     <td>{props.user.points}</td>
-    <td>
-      <Link to={"/edit/" + props.user._id}>Edit</Link> |
-      <a
-        href="/"
-        onClick={() => {
-          props.deleteUser(props.user._id);
-        }}
-      >
-        Delete
-      </a>
-    </td>
   </tr>
 );
 
@@ -27,7 +14,6 @@ export default class Leaderboard extends Component {
   // This is the constructor that shall store our data retrieved from the database
   constructor(props) {
     super(props);
-    this.deleteUser = this.deleteUser.bind(this);
     this.state = { users: [] };
   }
 
@@ -43,24 +29,12 @@ export default class Leaderboard extends Component {
       });
   }
 
-  // This method will delete a user based on the method
-  deleteUser(id) {
-    axios.delete("http://localhost:5000/" + id).then((response) => {
-      console.log(response.data);
-    });
-
-    this.setState({
-      user: this.state.users.filter((el) => el._id !== id),
-    });
-  }
-
   // This method will map out the users on the table
   userList() {
     return this.state.users.map((currentuser) => {
       return (
         <User
           user={currentuser}
-          deleteUser={this.deleteUser}
           key={currentuser._id}
         />
       );
@@ -76,10 +50,7 @@ export default class Leaderboard extends Component {
           <thead>
             <tr>
               <th>Name</th>
-              <th>Username</th>
-              <th>Password</th>
               <th>Points</th>
-              <th>Actions</th>
             </tr>
           </thead>
           <tbody>{this.userList()}</tbody>

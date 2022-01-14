@@ -1,0 +1,777 @@
+[
+  {
+    "year": 2019,
+    "bracket": "east",
+    "round": 1,
+    "teamA": { "won": true, "seed": "1", "name": "Duke", "score": "85" },
+    "teamB": {
+      "won": false,
+      "seed": "16",
+      "name": "North Dakota State",
+      "score": "62"
+    },
+    "boxScore": "2019-03-22-19-duke",
+    "date": "2019-03-22",
+    "location": "Columbia, SC"
+  },
+  {
+    "year": 2019,
+    "bracket": "east",
+    "round": 1,
+    "teamA": { "won": false, "seed": "8", "name": "VCU", "score": "58" },
+    "teamB": { "won": true, "seed": "9", "name": "UCF", "score": "73" },
+    "boxScore": "2019-03-22-21-virginia-commonwealth",
+    "date": "2019-03-22",
+    "location": "Columbia, SC"
+  },
+  {
+    "year": 2019,
+    "bracket": "east",
+    "round": 1,
+    "teamA": {
+      "won": false,
+      "seed": "5",
+      "name": "Mississippi State",
+      "score": "76"
+    },
+    "teamB": { "won": true, "seed": "12", "name": "Liberty", "score": "80" },
+    "boxScore": "2019-03-22-19-mississippi-state",
+    "date": "2019-03-22",
+    "location": "San Jose, CA"
+  },
+  {
+    "year": 2019,
+    "bracket": "east",
+    "round": 1,
+    "teamA": {
+      "won": true,
+      "seed": "4",
+      "name": "Virginia Tech",
+      "score": "66"
+    },
+    "teamB": {
+      "won": false,
+      "seed": "13",
+      "name": "Saint Louis",
+      "score": "52"
+    },
+    "boxScore": "2019-03-22-21-virginia-tech",
+    "date": "2019-03-22",
+    "location": "San Jose, CA"
+  },
+  {
+    "year": 2019,
+    "bracket": "east",
+    "round": 1,
+    "teamA": { "won": true, "seed": "6", "name": "Maryland", "score": "79" },
+    "teamB": { "won": false, "seed": "11", "name": "Belmont", "score": "77" },
+    "boxScore": "2019-03-21-15-maryland",
+    "date": "2019-03-21",
+    "location": "Jacksonville, FL"
+  },
+  {
+    "year": 2019,
+    "bracket": "east",
+    "round": 1,
+    "teamA": { "won": true, "seed": "3", "name": "LSU", "score": "79" },
+    "teamB": { "won": false, "seed": "14", "name": "Yale", "score": "74" },
+    "boxScore": "2019-03-21-12-louisiana-state",
+    "date": "2019-03-21",
+    "location": "Jacksonville, FL"
+  },
+  {
+    "year": 2019,
+    "bracket": "east",
+    "round": 1,
+    "teamA": { "won": false, "seed": "7", "name": "Louisville", "score": "76" },
+    "teamB": { "won": true, "seed": "10", "name": "Minnesota", "score": "86" },
+    "boxScore": "2019-03-21-12-louisville",
+    "date": "2019-03-21",
+    "location": "Des Moines, IA"
+  },
+  {
+    "year": 2019,
+    "bracket": "east",
+    "round": 1,
+    "teamA": {
+      "won": true,
+      "seed": "2",
+      "name": "Michigan State",
+      "score": "76"
+    },
+    "teamB": { "won": false, "seed": "15", "name": "Bradley", "score": "65" },
+    "boxScore": "2019-03-21-14-michigan-state",
+    "date": "2019-03-21",
+    "location": "Des Moines, IA"
+  },
+  {
+    "year": 2019,
+    "bracket": "east",
+    "round": 2,
+    "teamA": { "won": true, "seed": "1", "name": "Duke", "score": "77" },
+    "teamB": { "won": false, "seed": "9", "name": "UCF", "score": "76" },
+    "boxScore": "2019-03-24-17-duke",
+    "date": "2019-03-24",
+    "location": "Columbia, SC"
+  },
+  {
+    "year": 2019,
+    "bracket": "east",
+    "round": 2,
+    "teamA": { "won": false, "seed": "12", "name": "Liberty", "score": "58" },
+    "teamB": {
+      "won": true,
+      "seed": "4",
+      "name": "Virginia Tech",
+      "score": "67"
+    },
+    "boxScore": "2019-03-24-19-virginia-tech",
+    "date": "2019-03-24",
+    "location": "San Jose, CA"
+  },
+  {
+    "year": 2019,
+    "bracket": "east",
+    "round": 2,
+    "teamA": { "won": false, "seed": "6", "name": "Maryland", "score": "67" },
+    "teamB": { "won": true, "seed": "3", "name": "LSU", "score": "69" },
+    "boxScore": "2019-03-23-12-louisiana-state",
+    "date": "2019-03-23",
+    "location": "Jacksonville, FL"
+  },
+  {
+    "year": 2019,
+    "bracket": "east",
+    "round": 2,
+    "teamA": { "won": false, "seed": "10", "name": "Minnesota", "score": "50" },
+    "teamB": {
+      "won": true,
+      "seed": "2",
+      "name": "Michigan State",
+      "score": "70"
+    },
+    "boxScore": "2019-03-23-19-michigan-state",
+    "date": "2019-03-23",
+    "location": "Des Moines, IA"
+  },
+  {
+    "year": 2019,
+    "bracket": "east",
+    "round": 3,
+    "teamA": { "won": true, "seed": "1", "name": "Duke", "score": "75" },
+    "teamB": {
+      "won": false,
+      "seed": "4",
+      "name": "Virginia Tech",
+      "score": "73"
+    },
+    "boxScore": "2019-03-29-21-duke",
+    "date": "2019-03-29",
+    "location": "Washington, DC"
+  },
+  {
+    "year": 2019,
+    "bracket": "east",
+    "round": 3,
+    "teamA": { "won": false, "seed": "3", "name": "LSU", "score": "63" },
+    "teamB": {
+      "won": true,
+      "seed": "2",
+      "name": "Michigan State",
+      "score": "80"
+    },
+    "boxScore": "2019-03-29-19-michigan-state",
+    "date": "2019-03-29",
+    "location": "Washington, DC"
+  },
+  {
+    "year": 2019,
+    "bracket": "east",
+    "round": 4,
+    "teamA": { "won": false, "seed": "1", "name": "Duke", "score": "67" },
+    "teamB": {
+      "won": true,
+      "seed": "2",
+      "name": "Michigan State",
+      "score": "68"
+    },
+    "boxScore": "2019-03-31-17-duke",
+    "date": "2019-03-31",
+    "location": "Washington, DC"
+  },
+  {
+    "year": 2019,
+    "bracket": "west",
+    "round": 1,
+    "teamA": { "won": true, "seed": "1", "name": "Gonzaga", "score": "87" },
+    "teamB": {
+      "won": false,
+      "seed": "16",
+      "name": "Fairleigh Dickinson",
+      "score": "49"
+    },
+    "boxScore": "2019-03-21-19-gonzaga",
+    "date": "2019-03-21",
+    "location": "Salt Lake City, UT"
+  },
+  {
+    "year": 2019,
+    "bracket": "west",
+    "round": 1,
+    "teamA": { "won": false, "seed": "8", "name": "Syracuse", "score": "69" },
+    "teamB": { "won": true, "seed": "9", "name": "Baylor", "score": "78" },
+    "boxScore": "2019-03-21-21-syracuse",
+    "date": "2019-03-21",
+    "location": "Salt Lake City, UT"
+  },
+  {
+    "year": 2019,
+    "bracket": "west",
+    "round": 1,
+    "teamA": { "won": false, "seed": "5", "name": "Marquette", "score": "64" },
+    "teamB": {
+      "won": true,
+      "seed": "12",
+      "name": "Murray State",
+      "score": "83"
+    },
+    "boxScore": "2019-03-21-16-marquette",
+    "date": "2019-03-21",
+    "location": "Hartford, CT"
+  },
+  {
+    "year": 2019,
+    "bracket": "west",
+    "round": 1,
+    "teamA": {
+      "won": true,
+      "seed": "4",
+      "name": "Florida State",
+      "score": "76"
+    },
+    "teamB": { "won": false, "seed": "13", "name": "Vermont", "score": "69" },
+    "boxScore": "2019-03-21-14-florida-state",
+    "date": "2019-03-21",
+    "location": "Hartford, CT"
+  },
+  {
+    "year": 2019,
+    "bracket": "west",
+    "round": 1,
+    "teamA": { "won": true, "seed": "6", "name": "Buffalo", "score": "91" },
+    "teamB": {
+      "won": false,
+      "seed": "11",
+      "name": "Arizona State",
+      "score": "74"
+    },
+    "boxScore": "2019-03-22-16-buffalo",
+    "date": "2019-03-22",
+    "location": "Tulsa, OK"
+  },
+  {
+    "year": 2019,
+    "bracket": "west",
+    "round": 1,
+    "teamA": { "won": true, "seed": "3", "name": "Texas Tech", "score": "72" },
+    "teamB": {
+      "won": false,
+      "seed": "14",
+      "name": "Northern Kentucky",
+      "score": "57"
+    },
+    "boxScore": "2019-03-22-13-texas-tech",
+    "date": "2019-03-22",
+    "location": "Tulsa, OK"
+  },
+  {
+    "year": 2019,
+    "bracket": "west",
+    "round": 1,
+    "teamA": { "won": false, "seed": "7", "name": "Nevada", "score": "61" },
+    "teamB": { "won": true, "seed": "10", "name": "Florida", "score": "70" },
+    "boxScore": "2019-03-21-18-nevada",
+    "date": "2019-03-21",
+    "location": "Des Moines, IA"
+  },
+  {
+    "year": 2019,
+    "bracket": "west",
+    "round": 1,
+    "teamA": { "won": true, "seed": "2", "name": "Michigan", "score": "74" },
+    "teamB": { "won": false, "seed": "15", "name": "Montana", "score": "55" },
+    "boxScore": "2019-03-21-21-michigan",
+    "date": "2019-03-21",
+    "location": "Des Moines, IA"
+  },
+  {
+    "year": 2019,
+    "bracket": "west",
+    "round": 2,
+    "teamA": { "won": true, "seed": "1", "name": "Gonzaga", "score": "83" },
+    "teamB": { "won": false, "seed": "9", "name": "Baylor", "score": "71" },
+    "boxScore": "2019-03-23-19-gonzaga",
+    "date": "2019-03-23",
+    "location": "Salt Lake City, UT"
+  },
+  {
+    "year": 2019,
+    "bracket": "west",
+    "round": 2,
+    "teamA": {
+      "won": false,
+      "seed": "12",
+      "name": "Murray State",
+      "score": "62"
+    },
+    "teamB": {
+      "won": true,
+      "seed": "4",
+      "name": "Florida State",
+      "score": "90"
+    },
+    "boxScore": "2019-03-23-18-florida-state",
+    "date": "2019-03-23",
+    "location": "Hartford, CT"
+  },
+  {
+    "year": 2019,
+    "bracket": "west",
+    "round": 2,
+    "teamA": { "won": false, "seed": "6", "name": "Buffalo", "score": "58" },
+    "teamB": { "won": true, "seed": "3", "name": "Texas Tech", "score": "78" },
+    "boxScore": "2019-03-24-18-texas-tech",
+    "date": "2019-03-24",
+    "location": "Tulsa, OK"
+  },
+  {
+    "year": 2019,
+    "bracket": "west",
+    "round": 2,
+    "teamA": { "won": false, "seed": "10", "name": "Florida", "score": "49" },
+    "teamB": { "won": true, "seed": "2", "name": "Michigan", "score": "64" },
+    "boxScore": "2019-03-23-17-michigan",
+    "date": "2019-03-23",
+    "location": "Des Moines, IA"
+  },
+  {
+    "year": 2019,
+    "bracket": "west",
+    "round": 3,
+    "teamA": { "won": true, "seed": "1", "name": "Gonzaga", "score": "72" },
+    "teamB": {
+      "won": false,
+      "seed": "4",
+      "name": "Florida State",
+      "score": "58"
+    },
+    "boxScore": "2019-03-28-19-gonzaga",
+    "date": "2019-03-28",
+    "location": "Anaheim, CA"
+  },
+  {
+    "year": 2019,
+    "bracket": "west",
+    "round": 3,
+    "teamA": { "won": true, "seed": "3", "name": "Texas Tech", "score": "63" },
+    "teamB": { "won": false, "seed": "2", "name": "Michigan", "score": "44" },
+    "boxScore": "2019-03-28-21-michigan",
+    "date": "2019-03-28",
+    "location": "Anaheim, CA"
+  },
+  {
+    "year": 2019,
+    "bracket": "west",
+    "round": 4,
+    "teamA": { "won": false, "seed": "1", "name": "Gonzaga", "score": "69" },
+    "teamB": { "won": true, "seed": "3", "name": "Texas Tech", "score": "75" },
+    "boxScore": "2019-03-30-18-gonzaga",
+    "date": "2019-03-30",
+    "location": "Anaheim, CA"
+  },
+  {
+    "year": 2019,
+    "bracket": "midwest",
+    "round": 1,
+    "teamA": { "won": true, "seed": "1", "name": "UNC", "score": "88" },
+    "teamB": { "won": false, "seed": "16", "name": "Iona", "score": "73" },
+    "boxScore": "2019-03-22-21-north-carolina",
+    "date": "2019-03-22",
+    "location": "Columbus, OH"
+  },
+  {
+    "year": 2019,
+    "bracket": "midwest",
+    "round": 1,
+    "teamA": { "won": false, "seed": "8", "name": "Utah State", "score": "61" },
+    "teamB": { "won": true, "seed": "9", "name": "Washington", "score": "78" },
+    "boxScore": "2019-03-22-18-utah-state",
+    "date": "2019-03-22",
+    "location": "Columbus, OH"
+  },
+  {
+    "year": 2019,
+    "bracket": "midwest",
+    "round": 1,
+    "teamA": { "won": true, "seed": "5", "name": "Auburn", "score": "78" },
+    "teamB": {
+      "won": false,
+      "seed": "12",
+      "name": "New Mexico State",
+      "score": "77"
+    },
+    "boxScore": "2019-03-21-13-auburn",
+    "date": "2019-03-21",
+    "location": "Salt Lake City, UT"
+  },
+  {
+    "year": 2019,
+    "bracket": "midwest",
+    "round": 1,
+    "teamA": { "won": true, "seed": "4", "name": "Kansas", "score": "87" },
+    "teamB": {
+      "won": false,
+      "seed": "13",
+      "name": "Northeastern",
+      "score": "53"
+    },
+    "boxScore": "2019-03-21-16-kansas",
+    "date": "2019-03-21",
+    "location": "Salt Lake City, UT"
+  },
+  {
+    "year": 2019,
+    "bracket": "midwest",
+    "round": 1,
+    "teamA": { "won": false, "seed": "6", "name": "Iowa State", "score": "59" },
+    "teamB": { "won": true, "seed": "11", "name": "Ohio State", "score": "62" },
+    "boxScore": "2019-03-22-21-iowa-state",
+    "date": "2019-03-22",
+    "location": "Tulsa, OK"
+  },
+  {
+    "year": 2019,
+    "bracket": "midwest",
+    "round": 1,
+    "teamA": { "won": true, "seed": "3", "name": "Houston", "score": "84" },
+    "teamB": {
+      "won": false,
+      "seed": "14",
+      "name": "Georgia State",
+      "score": "55"
+    },
+    "boxScore": "2019-03-22-19-houston",
+    "date": "2019-03-22",
+    "location": "Tulsa, OK"
+  },
+  {
+    "year": 2019,
+    "bracket": "midwest",
+    "round": 1,
+    "teamA": { "won": true, "seed": "7", "name": "Wofford", "score": "84" },
+    "teamB": {
+      "won": false,
+      "seed": "10",
+      "name": "Seton Hall",
+      "score": "68"
+    },
+    "boxScore": "2019-03-21-21-wofford",
+    "date": "2019-03-21",
+    "location": "Jacksonville, FL"
+  },
+  {
+    "year": 2019,
+    "bracket": "midwest",
+    "round": 1,
+    "teamA": { "won": true, "seed": "2", "name": "Kentucky", "score": "79" },
+    "teamB": {
+      "won": false,
+      "seed": "15",
+      "name": "Abilene Christian",
+      "score": "44"
+    },
+    "boxScore": "2019-03-21-19-kentucky",
+    "date": "2019-03-21",
+    "location": "Jacksonville, FL"
+  },
+  {
+    "year": 2019,
+    "bracket": "midwest",
+    "round": 2,
+    "teamA": { "won": true, "seed": "1", "name": "UNC", "score": "81" },
+    "teamB": { "won": false, "seed": "9", "name": "Washington", "score": "59" },
+    "boxScore": "2019-03-24-14-north-carolina",
+    "date": "2019-03-24",
+    "location": "Columbus, OH"
+  },
+  {
+    "year": 2019,
+    "bracket": "midwest",
+    "round": 2,
+    "teamA": { "won": true, "seed": "5", "name": "Auburn", "score": "89" },
+    "teamB": { "won": false, "seed": "4", "name": "Kansas", "score": "75" },
+    "boxScore": "2019-03-23-21-kansas",
+    "date": "2019-03-23",
+    "location": "Salt Lake City, UT"
+  },
+  {
+    "year": 2019,
+    "bracket": "midwest",
+    "round": 2,
+    "teamA": {
+      "won": false,
+      "seed": "11",
+      "name": "Ohio State",
+      "score": "59"
+    },
+    "teamB": { "won": true, "seed": "3", "name": "Houston", "score": "74" },
+    "boxScore": "2019-03-24-20-houston",
+    "date": "2019-03-24",
+    "location": "Tulsa, OK"
+  },
+  {
+    "year": 2019,
+    "bracket": "midwest",
+    "round": 2,
+    "teamA": { "won": false, "seed": "7", "name": "Wofford", "score": "56" },
+    "teamB": { "won": true, "seed": "2", "name": "Kentucky", "score": "62" },
+    "boxScore": "2019-03-23-14-kentucky",
+    "date": "2019-03-23",
+    "location": "Jacksonville, FL"
+  },
+  {
+    "year": 2019,
+    "bracket": "midwest",
+    "round": 3,
+    "teamA": { "won": false, "seed": "1", "name": "UNC", "score": "80" },
+    "teamB": { "won": true, "seed": "5", "name": "Auburn", "score": "97" },
+    "boxScore": "2019-03-29-19-north-carolina",
+    "date": "2019-03-29",
+    "location": "Kansas City, MO"
+  },
+  {
+    "year": 2019,
+    "bracket": "midwest",
+    "round": 3,
+    "teamA": { "won": false, "seed": "3", "name": "Houston", "score": "58" },
+    "teamB": { "won": true, "seed": "2", "name": "Kentucky", "score": "62" },
+    "boxScore": "2019-03-29-21-kentucky",
+    "date": "2019-03-29",
+    "location": "Kansas City, MO"
+  },
+  {
+    "year": 2019,
+    "bracket": "midwest",
+    "round": 4,
+    "teamA": { "won": true, "seed": "5", "name": "Auburn", "score": "77" },
+    "teamB": { "won": false, "seed": "2", "name": "Kentucky", "score": "71" },
+    "boxScore": "2019-03-31-14-kentucky",
+    "date": "2019-03-31",
+    "location": "Kansas City, MO"
+  },
+  {
+    "year": 2019,
+    "bracket": "south",
+    "round": 1,
+    "teamA": { "won": true, "seed": "1", "name": "Virginia", "score": "71" },
+    "teamB": {
+      "won": false,
+      "seed": "16",
+      "name": "Gardner-Webb",
+      "score": "56"
+    },
+    "boxScore": "2019-03-22-15-virginia",
+    "date": "2019-03-22",
+    "location": "Columbia, SC"
+  },
+  {
+    "year": 2019,
+    "bracket": "south",
+    "round": 1,
+    "teamA": { "won": false, "seed": "8", "name": "Ole Miss", "score": "72" },
+    "teamB": { "won": true, "seed": "9", "name": "Oklahoma", "score": "95" },
+    "boxScore": "2019-03-22-12-mississippi",
+    "date": "2019-03-22",
+    "location": "Columbia, SC"
+  },
+  {
+    "year": 2019,
+    "bracket": "south",
+    "round": 1,
+    "teamA": { "won": false, "seed": "5", "name": "Wisconsin", "score": "54" },
+    "teamB": { "won": true, "seed": "12", "name": "Oregon", "score": "72" },
+    "boxScore": "2019-03-22-16-wisconsin",
+    "date": "2019-03-22",
+    "location": "San Jose, CA"
+  },
+  {
+    "year": 2019,
+    "bracket": "south",
+    "round": 1,
+    "teamA": {
+      "won": false,
+      "seed": "4",
+      "name": "Kansas State",
+      "score": "64"
+    },
+    "teamB": { "won": true, "seed": "13", "name": "UC-Irvine", "score": "70" },
+    "boxScore": "2019-03-22-14-kansas-state",
+    "date": "2019-03-22",
+    "location": "San Jose, CA"
+  },
+  {
+    "year": 2019,
+    "bracket": "south",
+    "round": 1,
+    "teamA": { "won": true, "seed": "6", "name": "Villanova", "score": "61" },
+    "teamB": {
+      "won": false,
+      "seed": "11",
+      "name": "Saint Mary's",
+      "score": "57"
+    },
+    "boxScore": "2019-03-21-19-villanova",
+    "date": "2019-03-21",
+    "location": "Hartford, CT"
+  },
+  {
+    "year": 2019,
+    "bracket": "south",
+    "round": 1,
+    "teamA": { "won": true, "seed": "3", "name": "Purdue", "score": "61" },
+    "teamB": {
+      "won": false,
+      "seed": "14",
+      "name": "Old Dominion",
+      "score": "48"
+    },
+    "boxScore": "2019-03-21-21-purdue",
+    "date": "2019-03-21",
+    "location": "Hartford, CT"
+  },
+  {
+    "year": 2019,
+    "bracket": "south",
+    "round": 1,
+    "teamA": { "won": false, "seed": "7", "name": "Cincinnati", "score": "72" },
+    "teamB": { "won": true, "seed": "10", "name": "Iowa", "score": "79" },
+    "boxScore": "2019-03-22-12-cincinnati",
+    "date": "2019-03-22",
+    "location": "Columbus, OH"
+  },
+  {
+    "year": 2019,
+    "bracket": "south",
+    "round": 1,
+    "teamA": { "won": true, "seed": "2", "name": "Tennessee", "score": "77" },
+    "teamB": { "won": false, "seed": "15", "name": "Colgate", "score": "70" },
+    "boxScore": "2019-03-22-14-tennessee",
+    "date": "2019-03-22",
+    "location": "Columbus, OH"
+  },
+  {
+    "year": 2019,
+    "bracket": "south",
+    "round": 2,
+    "teamA": { "won": true, "seed": "1", "name": "Virginia", "score": "63" },
+    "teamB": { "won": false, "seed": "9", "name": "Oklahoma", "score": "51" },
+    "boxScore": "2019-03-24-19-virginia",
+    "date": "2019-03-24",
+    "location": "Columbia, SC"
+  },
+  {
+    "year": 2019,
+    "bracket": "south",
+    "round": 2,
+    "teamA": { "won": true, "seed": "12", "name": "Oregon", "score": "73" },
+    "teamB": { "won": false, "seed": "13", "name": "UC-Irvine", "score": "54" },
+    "boxScore": "2019-03-24-21-oregon",
+    "date": "2019-03-24",
+    "location": "San Jose, CA"
+  },
+  {
+    "year": 2019,
+    "bracket": "south",
+    "round": 2,
+    "teamA": { "won": false, "seed": "6", "name": "Villanova", "score": "61" },
+    "teamB": { "won": true, "seed": "3", "name": "Purdue", "score": "87" },
+    "boxScore": "2019-03-23-20-purdue",
+    "date": "2019-03-23",
+    "location": "Hartford, CT"
+  },
+  {
+    "year": 2019,
+    "bracket": "south",
+    "round": 2,
+    "teamA": { "won": false, "seed": "10", "name": "Iowa", "score": "77" },
+    "teamB": { "won": true, "seed": "2", "name": "Tennessee", "score": "83" },
+    "boxScore": "2019-03-24-12-tennessee",
+    "date": "2019-03-24",
+    "location": "Columbus, OH"
+  },
+  {
+    "year": 2019,
+    "bracket": "south",
+    "round": 3,
+    "teamA": { "won": true, "seed": "1", "name": "Virginia", "score": "53" },
+    "teamB": { "won": false, "seed": "12", "name": "Oregon", "score": "49" },
+    "boxScore": "2019-03-28-21-virginia",
+    "date": "2019-03-28",
+    "location": "Louisville, KY"
+  },
+  {
+    "year": 2019,
+    "bracket": "south",
+    "round": 3,
+    "teamA": { "won": true, "seed": "3", "name": "Purdue", "score": "99" },
+    "teamB": { "won": false, "seed": "2", "name": "Tennessee", "score": "94" },
+    "boxScore": "2019-03-28-19-tennessee",
+    "date": "2019-03-28",
+    "location": "Louisville, KY"
+  },
+  {
+    "year": 2019,
+    "bracket": "south",
+    "round": 4,
+    "teamA": { "won": true, "seed": "1", "name": "Virginia", "score": "80" },
+    "teamB": { "won": false, "seed": "3", "name": "Purdue", "score": "75" },
+    "boxScore": "2019-03-30-20-virginia",
+    "date": "2019-03-30",
+    "location": "Louisville, KY"
+  },
+  {
+    "year": 2019,
+    "bracket": "national",
+    "round": 1,
+    "teamA": { "won": true, "seed": "1", "name": "Virginia", "score": "63" },
+    "teamB": { "won": false, "seed": "5", "name": "Auburn", "score": "62" },
+    "boxScore": "2019-04-06-18-virginia",
+    "date": "2019-04-06",
+    "location": "Minneapolis, MN"
+  },
+  {
+    "year": 2019,
+    "bracket": "national",
+    "round": 1,
+    "teamA": { "won": true, "seed": "3", "name": "Texas Tech", "score": "61" },
+    "teamB": {
+      "won": false,
+      "seed": "2",
+      "name": "Michigan State",
+      "score": "51"
+    },
+    "boxScore": "2019-04-06-20-michigan-state",
+    "date": "2019-04-06",
+    "location": "Minneapolis, MN"
+  },
+  {
+    "year": 2019,
+    "bracket": "national",
+    "round": 2,
+    "teamA": { "won": true, "seed": "1", "name": "Virginia", "score": "85" },
+    "teamB": { "won": false, "seed": "3", "name": "Texas Tech", "score": "77" },
+    "boxScore": "2019-04-08-21-virginia",
+    "date": "2019-04-08",
+    "location": "Minneapolis, MN"
+  }
+]

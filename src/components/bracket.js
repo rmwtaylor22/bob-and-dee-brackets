@@ -1,12 +1,148 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
+import axios from "axios";
+import "../App.css";
 
-const Bracket = () => {
+const Game = (props) => (
+  <tr>
+    <tr>
+      <td>{props.game.teamA.seed}</td>
+      <td>{props.game.teamA.name}</td>
+    </tr>
+    <tr>
+      <td>{props.game.teamB.seed}</td>
+      <td>{props.game.teamB.name}</td>
+    </tr>
+  </tr>
+);
 
-  return (
-    <div>
-        <p>This page will hold the bracket.</p>
-    </div>
-  );
+export default class Bracket extends Component {
+  // This is the constructor that shall store our data retrieved from the database
+  constructor(props) {
+    super(props);
+    this.state = { games: [] };
+  }
+
+  // This method will get the data from the database.
+  componentDidMount() {
+    axios
+      .get("http://localhost:5000/games/")
+      .then((response) => {
+        this.setState({ games: response.data });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  // This method will map out the games on the table
+  userList() {
+    return this.state.games.map((currentGame) => {
+      return <Game game={currentGame} key={currentGame._id} />;
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1 className="bracket-page-title">Choose your picks!</h1>
+        <div className="bracket-container">
+          <div className="bracket-column names">
+            <table>
+              <thead></thead>
+              <tbody>{this.userList()}</tbody>
+            </table>
+          </div>
+          <div className="bracket-column r1">
+            <select className="pick-dd dd-r1">
+              <option value="team1">Team 1</option>
+              <option value="team2">Team 2</option>
+            </select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+          </div>
+          <div className="bracket-column r2">
+            <select className="pick-dd dd-r2"></select>
+            <select className="pick-dd dd-r2"></select>
+            <select className="pick-dd dd-r2"></select>
+            <select className="pick-dd dd-r2"></select>
+            <select className="pick-dd dd-r2"></select>
+            <select className="pick-dd dd-r2"></select>
+            <select className="pick-dd dd-r2"></select>
+            <select className="pick-dd dd-r2"></select>
+          </div>
+          <div className="bracket-column r3">
+            <select className="pick-dd dd-r3"></select>
+            <select className="pick-dd dd-r3"></select>
+            <select className="pick-dd dd-r3"></select>
+            <select className="pick-dd dd-r3"></select>
+          </div>
+          <div className="bracket-column r4">
+            <select className="pick-dd dd-r4"></select>
+            <select className="pick-dd dd-r4"></select>
+          </div>
+          <div className="bracket-column r5">
+            <select className="pick-dd dd-r4"></select>
+          </div>
+          <div className="bracket-column r6">
+            <select className="pick-dd dd-r4"></select>
+          </div>
+          <div className="bracket-column r5">
+            <select className="pick-dd dd-r4"></select>
+          </div>
+          <div className="bracket-column r4">
+            <select className="pick-dd dd-r4"></select>
+            <select className="pick-dd dd-r4"></select>
+          </div>
+          <div className="bracket-column r3">
+            <select className="pick-dd dd-r3"></select>
+            <select className="pick-dd dd-r3"></select>
+            <select className="pick-dd dd-r3"></select>
+            <select className="pick-dd dd-r3"></select>
+          </div>
+          <div className="bracket-column r2">
+            <select className="pick-dd dd-r2"></select>
+            <select className="pick-dd dd-r2"></select>
+            <select className="pick-dd dd-r2"></select>
+            <select className="pick-dd dd-r2"></select>
+            <select className="pick-dd dd-r2"></select>
+            <select className="pick-dd dd-r2"></select>
+            <select className="pick-dd dd-r2"></select>
+            <select className="pick-dd dd-r2"></select>
+          </div>
+          <div className="bracket-column r1">
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+            <select className="pick-dd dd-r1"></select>
+          </div>
+          <div className="bracket-column names">Why no</div>
+        </div>
+      </div>
+    );
+  }
 }
-
-export default Bracket;

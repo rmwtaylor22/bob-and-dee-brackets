@@ -7,9 +7,8 @@ import Navbar from "./components/navbar";
 import Edit from "./components/edit";
 import Create from "./components/create";
 import Leaderboard from "./components/leaderboard";
-import Login from "./components/login";
-import Register from "./components/register";
 import Bracket from "./components/bracket";
+import Test from "./components/test";
 
 const App = () => {
   return (
@@ -18,10 +17,10 @@ const App = () => {
         <Navbar />
         <main>
           <Route path="/" exact component={Leaderboard} />
-          <Route path="/login" component={Login} />
           <Route path="/bracket" component={Bracket} />
           <Route path="/create" component={Create} />
           <Route path="/edit/:id" component={Edit} />
+          <Route path="/test" component={Test} />
         </main>
       </BrowserRouter>
     </div>
