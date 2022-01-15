@@ -2,6 +2,7 @@ import React from "react";
 
 // We import bootstrap to make our application look better.
 import "bootstrap/dist/css/bootstrap.css";
+import "../App.css";
 
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
@@ -10,10 +11,12 @@ import { Link } from "react-router-dom";
 // Here, we display our Navbar
 const Navbar = () => {
   return (
-    <div className="nav-band">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <div>
+      <nav class="navbar navbar-expand navbar-dark bg-dark">
         <NavLink className="navbar-brand" to="/">
-          Bob and D <br></br>Brackets
+          <span class="larger">Bob & D</span>
+          <br></br>
+          <span class="nav-tilt">brackets</span>
         </NavLink>
         <div>
           <ul className="navbar-nav ml-auto">

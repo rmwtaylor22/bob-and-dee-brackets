@@ -4,6 +4,7 @@ import "../App.css";
 
 const Game = (props) => (
   <tr>
+    <br></br>
     <tr>
       <td>{props.game.teamA.seed}</td>
       <td>{props.game.teamA.name}</td>
@@ -12,6 +13,7 @@ const Game = (props) => (
       <td>{props.game.teamB.seed}</td>
       <td>{props.game.teamB.name}</td>
     </tr>
+    <br></br>
   </tr>
 );
 
@@ -25,7 +27,7 @@ export default class Bracket extends Component {
   // This method will get the data from the database.
   componentDidMount() {
     axios
-      .get("http://localhost:5000/games/")
+      .get("http://localhost:5000/games/left")
       .then((response) => {
         this.setState({ games: response.data });
       })
@@ -44,12 +46,12 @@ export default class Bracket extends Component {
   render() {
     return (
       <div>
-        <h1 className="bracket-page-title">Choose your picks!</h1>
+        <h1 className="bracket-page-title"></h1>
         <div className="bracket-container">
           <div className="bracket-column names">
             <table>
               <thead></thead>
-              <tbody>{this.userList()}</tbody>
+              <tbody className="small-type">{this.userList()}</tbody>
             </table>
           </div>
           <div className="bracket-column r1">
@@ -85,8 +87,10 @@ export default class Bracket extends Component {
           </div>
           <div className="bracket-column r3">
             <select className="pick-dd dd-r3"></select>
+            <h2>WEST</h2>
             <select className="pick-dd dd-r3"></select>
             <select className="pick-dd dd-r3"></select>
+            <h2>EAST</h2>
             <select className="pick-dd dd-r3"></select>
           </div>
           <div className="bracket-column r4">
@@ -94,13 +98,18 @@ export default class Bracket extends Component {
             <select className="pick-dd dd-r4"></select>
           </div>
           <div className="bracket-column r5">
-            <select className="pick-dd dd-r4"></select>
-          </div>
-          <div className="bracket-column r6">
-            <select className="pick-dd dd-r4"></select>
-          </div>
-          <div className="bracket-column r5">
-            <select className="pick-dd dd-r4"></select>
+            <div className="dd-r2">
+              <label>East/ West</label>
+              <select className="pick-dd"></select>
+            </div>
+            <div className="dd-r2">
+              <label><b>Champion</b></label>
+              <select className="pick-dd"></select>
+            </div>
+            <div  className="dd-r2">
+              <label> Midwest/ South</label>
+              <select className="pick-dd"></select>
+            </div>
           </div>
           <div className="bracket-column r4">
             <select className="pick-dd dd-r4"></select>
@@ -108,8 +117,10 @@ export default class Bracket extends Component {
           </div>
           <div className="bracket-column r3">
             <select className="pick-dd dd-r3"></select>
+            <h2>SOUTH</h2>
             <select className="pick-dd dd-r3"></select>
             <select className="pick-dd dd-r3"></select>
+            <h2>MIDWEST</h2>
             <select className="pick-dd dd-r3"></select>
           </div>
           <div className="bracket-column r2">
