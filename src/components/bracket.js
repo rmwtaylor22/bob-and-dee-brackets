@@ -32,6 +32,36 @@ const GameEast = (props) => (
   </tr>
 );
 
+const GameSouth = (props) => (
+  <tr>
+    <br></br>
+    <tr>
+      <td>{props.game.teamA.seed}</td>
+      <td>{props.game.teamA.name}</td>
+    </tr>
+    <tr>
+      <td>{props.game.teamB.seed}</td>
+      <td>{props.game.teamB.name}</td>
+    </tr>
+    <br></br>
+  </tr>
+);
+
+const GameMidwest = (props) => (
+  <tr>
+    <br></br>
+    <tr>
+      <td>{props.game.teamA.seed}</td>
+      <td>{props.game.teamA.name}</td>
+    </tr>
+    <tr>
+      <td>{props.game.teamB.seed}</td>
+      <td>{props.game.teamB.name}</td>
+    </tr>
+    <br></br>
+  </tr>
+);
+
 export default class Bracket extends Component {
   // This is the constructor that shall store our data retrieved from the database
   constructor(props) {
@@ -63,6 +93,22 @@ export default class Bracket extends Component {
       .catch(function (error) {
         console.log(error);
       });
+    axios
+      .get("http://localhost:5000/games/south")
+      .then((response) => {
+        this.setState({ gamesSouth: response.data });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    axios
+      .get("http://localhost:5000/games/midwest")
+      .then((response) => {
+        this.setState({ gamesMidwest: response.data });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   // This method will map out the games on the table
@@ -76,6 +122,18 @@ export default class Bracket extends Component {
   gameEast() {
     return this.state.gamesEast.map((currentGame) => {
       return <GameEast game={currentGame} key={currentGame._id} />;
+    });
+  }
+
+  gameSouth() {
+    return this.state.gamesSouth.map((currentGame) => {
+      return <GameSouth game={currentGame} key={currentGame._id} />;
+    });
+  }
+
+  gameMidwest() {
+    return this.state.gamesMidwest.map((currentGame) => {
+      return <GameMidwest game={currentGame} key={currentGame._id} />;
     });
   }
 
@@ -190,7 +248,13 @@ export default class Bracket extends Component {
             <select className="pick-dd dd-r1"></select>
             <select className="pick-dd dd-r1"></select>
           </div>
-          <div className="bracket-column names">Why no</div>
+          <div className="bracket-column names">
+          <table>
+              <thead></thead>
+              <tbody className="small-type">{this.gameSouth()}</tbody>
+              <tbody className="small-type">{this.gameMidwest()}</tbody>
+            </table>
+          </div>
         </div>
       </div>
     );
