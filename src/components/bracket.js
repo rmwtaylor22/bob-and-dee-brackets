@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "../App.css";
 
-const GameWest = (props) => (
+const Game = (props) => (
   <tr>
     <br></br>
     <tr>
@@ -17,50 +17,16 @@ const GameWest = (props) => (
   </tr>
 );
 
-const GameEast = (props) => (
-  <tr>
-    <br></br>
-    <tr>
-      <td>{props.game.teamA.seed}</td>
-      <td>{props.game.teamA.name}</td>
-    </tr>
-    <tr>
-      <td>{props.game.teamB.seed}</td>
-      <td>{props.game.teamB.name}</td>
-    </tr>
-    <br></br>
-  </tr>
+const GameDropDown = (props) => (
+  <div>
+  <select className="pick-dd dd-r1">
+  <option disabled selected value>- select -</option>
+    <option value="team1">{props.game.teamA.name}</option>
+    <option value="team2">{props.game.teamB.name}</option>
+  </select>
+  </div>
 );
 
-const GameSouth = (props) => (
-  <tr>
-    <br></br>
-    <tr>
-      <td>{props.game.teamA.seed}</td>
-      <td>{props.game.teamA.name}</td>
-    </tr>
-    <tr>
-      <td>{props.game.teamB.seed}</td>
-      <td>{props.game.teamB.name}</td>
-    </tr>
-    <br></br>
-  </tr>
-);
-
-const GameMidwest = (props) => (
-  <tr>
-    <br></br>
-    <tr>
-      <td>{props.game.teamA.seed}</td>
-      <td>{props.game.teamA.name}</td>
-    </tr>
-    <tr>
-      <td>{props.game.teamB.seed}</td>
-      <td>{props.game.teamB.name}</td>
-    </tr>
-    <br></br>
-  </tr>
-);
 
 export default class Bracket extends Component {
   // This is the constructor that shall store our data retrieved from the database
@@ -73,6 +39,7 @@ export default class Bracket extends Component {
       gamesMidwest: [],
     };
   }
+
 
   // This method will get the data from the database.
   componentDidMount() {
@@ -114,26 +81,50 @@ export default class Bracket extends Component {
   // This method will map out the games on the table
   gameWest() {
     return this.state.gamesWest.map((currentGame) => {
-      return <GameWest game={currentGame} key={currentGame._id} />;
+      return <Game game={currentGame} key={currentGame._id} />;
+    });
+  }
+
+  gameWestDropDown() {
+    return this.state.gamesWest.map((currentGame) => {
+      return <GameDropDown game={currentGame} key={currentGame._id} />;
     });
   }
 
   // This method will map out the games on the table
   gameEast() {
     return this.state.gamesEast.map((currentGame) => {
-      return <GameEast game={currentGame} key={currentGame._id} />;
+      return <Game game={currentGame} key={currentGame._id} />;
+    });
+  }
+
+  gameEastDropDown() {
+    return this.state.gamesEast.map((currentGame) => {
+      return <GameDropDown game={currentGame} key={currentGame._id} />;
     });
   }
 
   gameSouth() {
     return this.state.gamesSouth.map((currentGame) => {
-      return <GameSouth game={currentGame} key={currentGame._id} />;
+      return <Game game={currentGame} key={currentGame._id} />;
+    });
+  }
+
+  gameSouthDropDown() {
+    return this.state.gamesSouth.map((currentGame) => {
+      return <GameDropDown game={currentGame} key={currentGame._id} />;
     });
   }
 
   gameMidwest() {
     return this.state.gamesMidwest.map((currentGame) => {
-      return <GameMidwest game={currentGame} key={currentGame._id} />;
+      return <Game game={currentGame} key={currentGame._id} />;
+    });
+  }
+
+  gameMidwestDropDown() {
+    return this.state.gamesMidwest.map((currentGame) => {
+      return <GameDropDown game={currentGame} key={currentGame._id} />;
     });
   }
 
@@ -150,25 +141,7 @@ export default class Bracket extends Component {
             </table>
           </div>
           <div className="bracket-column r1">
-            <select className="pick-dd dd-r1">
-              <option value="team1">Team 1</option>
-              <option value="team2">Team 2</option>
-            </select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
+            {this.gameWestDropDown()}{this.gameEastDropDown()}
           </div>
           <div className="bracket-column r2">
             <select className="pick-dd dd-r2"></select>
@@ -231,22 +204,7 @@ export default class Bracket extends Component {
             <select className="pick-dd dd-r2"></select>
           </div>
           <div className="bracket-column r1">
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
-            <select className="pick-dd dd-r1"></select>
+          {this.gameSouthDropDown()}{this.gameMidwestDropDown()}
           </div>
           <div className="bracket-column names">
           <table>
