@@ -155,10 +155,11 @@ export default class Bracket extends Component {
           </div>
           <div className="bracket-column r3">
             <select className="pick-dd dd-r3"></select>
-            <h2>WEST</h2>
+            <h2 className="nopadding">WEST</h2>
             <select className="pick-dd dd-r3"></select>
+            <h2 className="filler">I</h2>
             <select className="pick-dd dd-r3"></select>
-            <h2>EAST</h2>
+            <h2 className="nopadding">EAST</h2>
             <select className="pick-dd dd-r3"></select>
           </div>
           <div className="bracket-column r4">
@@ -189,6 +190,7 @@ export default class Bracket extends Component {
             <select className="pick-dd dd-r3"></select>
             <h2>SOUTH</h2>
             <select className="pick-dd dd-r3"></select>
+            <h2 className="filler">I</h2>
             <select className="pick-dd dd-r3"></select>
             <h2>MIDWEST</h2>
             <select className="pick-dd dd-r3"></select>

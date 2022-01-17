@@ -25,6 +25,9 @@ html, body, body > div, .app {
   color: antiquewhite;
 }
 
+.filler {
+  color: rgb(80, 146, 233);
+}
 
 .form-signin {
   width: 100%;
@@ -102,8 +105,8 @@ nav {
 }
 
 .dd-r3 {
-  margin-top: 107px;
-  margin-bottom: 107px;
+  margin-top: 84px;
+  margin-bottom: 84px;
 }
 
 .dd-r4 {
