@@ -18,15 +18,9 @@ const Game = (props) => (
 );
 
 const GameDropDown = (props) => (
-  <div>
-    <select className="pick-dd dd-r1">
-      <option disabled selected value>
-        - select -
-      </option>
-      <option value="team1">{props.game.teamA.name}</option>
-      <option value="team2">{props.game.teamB.name}</option>
-    </select>
-  </div>
+      <><option disabled selected value>
+    - select -
+  </option><option value={props.game.teamA.name}>{props.game.teamA.name}</option><option value={props.game.teamB.name}>{props.game.teamB.name}</option></>
 );
 
 export default class Bracket extends Component {
@@ -35,16 +29,17 @@ export default class Bracket extends Component {
     super(props);
     this.state = {
       gamesWest: [],
+      gamesEast: [],
+      gamesSouth: [],
+      gamesMidwest: [],
       funStuff: ["hello", "second choice", "third choce"],
+      gamesWest1: [],
       inputs: {
         d1: "",
         d2: "",
         d3: "",
         d4: "",
       },
-      gamesEast: [],
-      gamesSouth: [],
-      gamesMidwest: [],
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -94,6 +89,14 @@ export default class Bracket extends Component {
       .catch(function (error) {
         console.log(error);
       });
+    /*     axios
+      .get("http://localhost:5000/games/west/1")
+      .then((response) => {
+        this.setState({ gamesWest1: response.data });
+      })
+      .catch(function (error) {
+        console.log(error);
+      }); */
   }
 
   // This method will map out the games on the table
@@ -149,12 +152,10 @@ export default class Bracket extends Component {
   render() {
     const selectedPlanets = Object.values(this.state.inputs);
 
+    //    const d1Options = this.state.gamesWest.filter((item, index) => index === 0);
     const d1Options = this.state.funStuff;
     const d2Options = this.state.funStuff;
-    const d3Options = this.state.funStuff.filter(
-      (p) =>
-        selectedPlanets.find((sP) => sP === p) || p === this.state.inputs.d3
-    );
+    const d3Options = [this.state.inputs.d1, this.state.inputs.d2];
     return (
       <div>
         <h1 className="bracket-page-title"></h1>
@@ -167,13 +168,19 @@ export default class Bracket extends Component {
             </table>
           </div>
           <div className="bracket-column r1">
-            {this.gameWestDropDown()}
+            <div>
+              <select className="pick-dd dd-r1" name="d1" value={this.state.inputs.d1}
+              onChange={this.handleChange}>
+              {this.gameWestDropDown()}
+              </select>
+            </div>
+            
             {this.gameEastDropDown()}
           </div>
           <div className="bracket-column r2">
             <select
               className="pick-dd dd-r2"
-              name="d1"
+              name="d"
               value={this.state.inputs.d1}
               onChange={this.handleChange}
             >
@@ -182,22 +189,28 @@ export default class Bracket extends Component {
                 <option key={o}>{o}</option>
               ))}
             </select>
-            <select className="pick-dd dd-r2" name="d2"
-          value={this.state.inputs.d2}
-          onChange={this.handleChange}>
-            <option></option>
-          {d2Options.map(o => (
-            <option key={o}>{o}</option>
-          ))}
-          </select>
-            <select className="pick-dd dd-r2" name="d3"
-          value={this.state.inputs.d3}
-          onChange={this.handleChange}>
-            <option></option>
-          {d3Options.map(o => (
-            <option key={o}>{o}</option>
-          ))}
-          </select>
+            <select
+              className="pick-dd dd-r2"
+              name="d2"
+              value={this.state.inputs.d2}
+              onChange={this.handleChange}
+            >
+              <option></option>
+              {d2Options.map((o) => (
+                <option key={o}>{o}</option>
+              ))}
+            </select>
+            <select
+              className="pick-dd dd-r2"
+              name="d3"
+              value={this.state.inputs.d3}
+              onChange={this.handleChange}
+            >
+              <option></option>
+              {d3Options.map((o) => (
+                <option key={o}>{o}</option>
+              ))}
+            </select>
             <select className="pick-dd dd-r2"></select>
             <select className="pick-dd dd-r2"></select>
             <select className="pick-dd dd-r2"></select>
