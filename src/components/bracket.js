@@ -19,14 +19,15 @@ const Game = (props) => (
 
 const GameDropDown = (props) => (
   <div>
-  <select className="pick-dd dd-r1">
-  <option disabled selected value>- select -</option>
-    <option value="team1">{props.game.teamA.name}</option>
-    <option value="team2">{props.game.teamB.name}</option>
-  </select>
+    <select className="pick-dd dd-r1">
+      <option disabled selected value>
+        - select -
+      </option>
+      <option value="team1">{props.game.teamA.name}</option>
+      <option value="team2">{props.game.teamB.name}</option>
+    </select>
   </div>
 );
-
 
 export default class Bracket extends Component {
   // This is the constructor that shall store our data retrieved from the database
@@ -34,12 +35,29 @@ export default class Bracket extends Component {
     super(props);
     this.state = {
       gamesWest: [],
+      funStuff: ["hello", "second choice", "third choce"],
+      inputs: {
+        d1: "",
+        d2: "",
+        d3: "",
+        d4: "",
+      },
       gamesEast: [],
       gamesSouth: [],
       gamesMidwest: [],
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
+  handleChange({ target }) {
+    this.setState({
+      ...this.state,
+      inputs: {
+        ...this.state.inputs,
+        [target.name]: target.value,
+      },
+    });
+  }
 
   // This method will get the data from the database.
   componentDidMount() {
@@ -129,6 +147,14 @@ export default class Bracket extends Component {
   }
 
   render() {
+    const selectedPlanets = Object.values(this.state.inputs);
+
+    const d1Options = this.state.funStuff;
+    const d2Options = this.state.funStuff;
+    const d3Options = this.state.funStuff.filter(
+      (p) =>
+        selectedPlanets.find((sP) => sP === p) || p === this.state.inputs.d3
+    );
     return (
       <div>
         <h1 className="bracket-page-title"></h1>
@@ -141,12 +167,37 @@ export default class Bracket extends Component {
             </table>
           </div>
           <div className="bracket-column r1">
-            {this.gameWestDropDown()}{this.gameEastDropDown()}
+            {this.gameWestDropDown()}
+            {this.gameEastDropDown()}
           </div>
           <div className="bracket-column r2">
-            <select className="pick-dd dd-r2"></select>
-            <select className="pick-dd dd-r2"></select>
-            <select className="pick-dd dd-r2"></select>
+            <select
+              className="pick-dd dd-r2"
+              name="d1"
+              value={this.state.inputs.d1}
+              onChange={this.handleChange}
+            >
+              <option></option>
+              {d1Options.map((o) => (
+                <option key={o}>{o}</option>
+              ))}
+            </select>
+            <select className="pick-dd dd-r2" name="d2"
+          value={this.state.inputs.d2}
+          onChange={this.handleChange}>
+            <option></option>
+          {d2Options.map(o => (
+            <option key={o}>{o}</option>
+          ))}
+          </select>
+            <select className="pick-dd dd-r2" name="d3"
+          value={this.state.inputs.d3}
+          onChange={this.handleChange}>
+            <option></option>
+          {d3Options.map(o => (
+            <option key={o}>{o}</option>
+          ))}
+          </select>
             <select className="pick-dd dd-r2"></select>
             <select className="pick-dd dd-r2"></select>
             <select className="pick-dd dd-r2"></select>
@@ -206,10 +257,11 @@ export default class Bracket extends Component {
             <select className="pick-dd dd-r2"></select>
           </div>
           <div className="bracket-column r1">
-          {this.gameSouthDropDown()}{this.gameMidwestDropDown()}
+            {this.gameSouthDropDown()}
+            {this.gameMidwestDropDown()}
           </div>
           <div className="bracket-column names">
-          <table>
+            <table>
               <thead></thead>
               <tbody className="small-type">{this.gameSouth()}</tbody>
               <tbody className="small-type">{this.gameMidwest()}</tbody>
