@@ -32,6 +32,7 @@ export default class Bracket extends Component {
   constructor(props) {
     super(props);
     this.onChangeName = this.onChangeName.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
     this.state = {
       name: "",
       gamesWest: [],
@@ -39,6 +40,7 @@ export default class Bracket extends Component {
       gamesSouth: [],
       gamesMidwest: [],
       inputs: {
+        // first row
         d1: "",
         d2: "",
         d3: "",
@@ -55,6 +57,7 @@ export default class Bracket extends Component {
         d14: "",
         d15: "",
         d16: "",
+        // second
         d17: "",
         d18: "",
         d19: "",
@@ -63,21 +66,27 @@ export default class Bracket extends Component {
         d22: "",
         d23: "",
         d24: "",
+        // third
         d25: "",
         d26: "",
         d27: "",
         d28: "",
+        // fourth
         d29: "",
         d30: "",
+        // fifth
         d31: "",
         d32: "",
         d33: "",
+        // fourth
         d34: "",
         d35: "",
+        //third
         d36: "",
         d37: "",
         d38: "",
         d39: "",
+        // second
         d40: "",
         d41: "",
         d42: "",
@@ -121,6 +130,100 @@ export default class Bracket extends Component {
         ...this.state.inputs,
         [target.name]: target.value,
       },
+    });
+  }
+
+  // This function will handle the submission.
+  onSubmit(e) {
+    e.preventDefault();
+
+    // When post request is sent to the create url, axios will add a new user(newperson) to the database.
+    const newperson = {
+      name: this.state.name,
+      choices: {
+        d1: this.state.inputs.d1,
+        d2: this.state.inputs.d2,
+        d3: this.state.inputs.d3,
+        d4: this.state.inputs.d4,
+        d5: this.state.inputs.d5,
+        d6: this.state.inputs.d6,
+        d7: this.state.inputs.d7,
+        d8: this.state.inputs.d8,
+        d9: this.state.inputs.d9,
+        d10: this.state.inputs.d10,
+        d11: this.state.inputs.d11,
+        d12: this.state.inputs.d12,
+        d13: this.state.inputs.d13,
+        d14: this.state.inputs.d14,
+        d15: this.state.inputs.d15,
+        d16: this.state.inputs.d16,
+        // second
+        d17: this.state.inputs.d17,
+        d18: this.state.inputs.d18,
+        d19: this.state.inputs.d19,
+        d20: this.state.inputs.d20,
+        d21: this.state.inputs.d21,
+        d22: this.state.inputs.d22,
+        d23: this.state.inputs.d23,
+        d24: this.state.inputs.d24,
+        // third
+        d25: this.state.inputs.d25,
+        d26: this.state.inputs.d26,
+        d27: this.state.inputs.d27,
+        d28: this.state.inputs.d28,
+        // fourth
+        d29: this.state.inputs.d29,
+        d30: this.state.inputs.d30,
+        // fifth
+        d31: this.state.inputs.d31,
+        d32: this.state.inputs.d32,
+        d33: this.state.inputs.d33,
+        // fourth
+        d34: this.state.inputs.d34,
+        d35: this.state.inputs.d35,
+        //third
+        d36: this.state.inputs.d36,
+        d37: this.state.inputs.d37,
+        d38: this.state.inputs.d38,
+        d39: this.state.inputs.d39,
+        // second
+        d40: this.state.inputs.d40,
+        d41: this.state.inputs.d41,
+        d42: this.state.inputs.d42,
+        d43: this.state.inputs.d43,
+        d44: this.state.inputs.d44,
+        d45: this.state.inputs.d45,
+        d46: this.state.inputs.d46,
+        d47: this.state.inputs.d47,
+        // last row
+        d48: this.state.inputs.d48,
+        d49: this.state.inputs.d49,
+        d50: this.state.inputs.d50,
+        d51: this.state.inputs.d51,
+        d52: this.state.inputs.d52,
+        d53: this.state.inputs.d53,
+        d54: this.state.inputs.d54,
+        d55: this.state.inputs.d55,
+        d56: this.state.inputs.d56,
+        d57: this.state.inputs.d57,
+        d58: this.state.inputs.d58,
+        d59: this.state.inputs.d59,
+        d60: this.state.inputs.d60,
+        d61: this.state.inputs.d61,
+        d62: this.state.inputs.d62,
+        d63: this.state.inputs.d63,
+      }
+    };
+
+    axios
+      .post("http://localhost:5000/user/add", newperson)
+      .then((res) => console.log(res.data));
+
+    // We will empty the state after posting the data to the database
+    this.setState({
+      name: "",
+      d1: "",
+      d2: "",
     });
   }
 
