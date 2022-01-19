@@ -31,12 +31,13 @@ export default class Bracket extends Component {
   // This is the constructor that shall store our data retrieved from the database
   constructor(props) {
     super(props);
+    this.onChangeName = this.onChangeName.bind(this);
     this.state = {
+      name: "",
       gamesWest: [],
       gamesEast: [],
       gamesSouth: [],
       gamesMidwest: [],
-      funStuff: ["hello", "second choice", "third choce"],
       inputs: {
         d1: "",
         d2: "",
@@ -85,6 +86,7 @@ export default class Bracket extends Component {
         d45: "",
         d46: "",
         d47: "",
+        // last row
         d48: "",
         d49: "",
         d50: "",
@@ -101,32 +103,15 @@ export default class Bracket extends Component {
         d61: "",
         d62: "",
         d63: "",
-        d64: "",
-        d65: "",
-        d66: "",
-        d67: "",
-        d68: "",
-        d69: "",
-        d70: "",
-        d71: "",
-        d72: "",
-        d73: "",
-        d74: "",
-        d75: "",
-        d76: "",
-        d77: "",
-        d78: "",
-        d79: "",
-        d80: "",
-        d81: "",
-        d82: "",
-        d83: "",
-        d84: "",
-        d85: "",
-        d86: "",
       },
     };
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  onChangeName(e) {
+    this.setState({
+      name: e.target.value,
+    });
   }
 
   handleChange({ target }) {
@@ -478,9 +463,30 @@ export default class Bracket extends Component {
     const d30Options = [this.state.inputs.d27, this.state.inputs.d28];
     // row 5
     const d31Options = [this.state.inputs.d29, this.state.inputs.d30];
+    // champion
+    const d32Options = [this.state.inputs.d31, this.state.inputs.d33];
+    // row 5
+    const d33Options = [this.state.inputs.d34, this.state.inputs.d35];
+    // row 4
+    const d34Options = [this.state.inputs.d36, this.state.inputs.d37];
+    const d35Options = [this.state.inputs.d38, this.state.inputs.d39];
+    // row 3
+    const d36Options = [this.state.inputs.d40, this.state.inputs.d41];
+    const d37Options = [this.state.inputs.d42, this.state.inputs.d43];
+    const d38Options = [this.state.inputs.d44, this.state.inputs.d45];
+    const d39Options = [this.state.inputs.d46, this.state.inputs.d47];
+    // row 2
+    const d40Options = [this.state.inputs.d48, this.state.inputs.d49];
+    const d41Options = [this.state.inputs.d50, this.state.inputs.d51];
+    const d42Options = [this.state.inputs.d52, this.state.inputs.d53];
+    const d43Options = [this.state.inputs.d54, this.state.inputs.d55];
+    const d44Options = [this.state.inputs.d56, this.state.inputs.d57];
+    const d45Options = [this.state.inputs.d58, this.state.inputs.d59];
+    const d46Options = [this.state.inputs.d60, this.state.inputs.d61];
+    const d47Options = [this.state.inputs.d62, this.state.inputs.d63];
 
     return (
-      <div>
+      <form onSubmit={this.onSubmit}>
         <h1 className="bracket-page-title"></h1>
         <div className="bracket-container">
           <div className="bracket-column names">
@@ -496,6 +502,7 @@ export default class Bracket extends Component {
               name="d1"
               value={this.state.inputs.d1}
               onChange={this.handleChange}
+              onMouseMove={this.handleChange}
             >
               {this.gameOneW()}
             </select>
@@ -504,6 +511,7 @@ export default class Bracket extends Component {
               name="d2"
               value={this.state.inputs.d2}
               onChange={this.handleChange}
+              onMouseMove={this.handleChange}
             >
               {this.gameTwoW()}
             </select>
@@ -512,6 +520,7 @@ export default class Bracket extends Component {
               name="d3"
               value={this.state.inputs.d3}
               onChange={this.handleChange}
+              onMouseMove={this.handleChange}
             >
               {this.gameThreeW()}
             </select>
@@ -520,6 +529,7 @@ export default class Bracket extends Component {
               name="d4"
               value={this.state.inputs.d4}
               onChange={this.handleChange}
+              onMouseMove={this.handleChange}
             >
               {this.gameFourW()}
             </select>
@@ -528,6 +538,7 @@ export default class Bracket extends Component {
               name="d5"
               value={this.state.inputs.d5}
               onChange={this.handleChange}
+              onMouseMove={this.handleChange}
             >
               {this.gameFiveW()}
             </select>
@@ -536,6 +547,7 @@ export default class Bracket extends Component {
               name="d6"
               value={this.state.inputs.d6}
               onChange={this.handleChange}
+              onMouseMove={this.handleChange}
             >
               {this.gameSixW()}
             </select>
@@ -544,6 +556,7 @@ export default class Bracket extends Component {
               name="d7"
               value={this.state.inputs.d7}
               onChange={this.handleChange}
+              onMouseMove={this.handleChange}
             >
               {this.gameSevenW()}
             </select>
@@ -552,6 +565,7 @@ export default class Bracket extends Component {
               name="d8"
               value={this.state.inputs.d8}
               onChange={this.handleChange}
+              onMouseMove={this.handleChange}
             >
               {this.gameEightW()}
             </select>
@@ -560,6 +574,7 @@ export default class Bracket extends Component {
               name="d9"
               value={this.state.inputs.d9}
               onChange={this.handleChange}
+              onMouseMove={this.handleChange}
             >
               {this.gameOneE()}
             </select>
@@ -568,6 +583,7 @@ export default class Bracket extends Component {
               name="d10"
               value={this.state.inputs.d10}
               onChange={this.handleChange}
+              onMouseMove={this.handleChange}
             >
               {this.gameTwoE()}
             </select>
@@ -576,6 +592,7 @@ export default class Bracket extends Component {
               name="d11"
               value={this.state.inputs.d11}
               onChange={this.handleChange}
+              onMouseMove={this.handleChange}
             >
               {this.gameThreeE()}
             </select>
@@ -584,6 +601,7 @@ export default class Bracket extends Component {
               name="d12"
               value={this.state.inputs.d12}
               onChange={this.handleChange}
+              onMouseMove={this.handleChange}
             >
               {this.gameFourE()}
             </select>
@@ -592,6 +610,7 @@ export default class Bracket extends Component {
               name="d13"
               value={this.state.inputs.d13}
               onChange={this.handleChange}
+              onMouseMove={this.handleChange}
             >
               {this.gameFiveE()}
             </select>
@@ -600,6 +619,7 @@ export default class Bracket extends Component {
               name="d14"
               value={this.state.inputs.d14}
               onChange={this.handleChange}
+              onMouseMove={this.handleChange}
             >
               {this.gameSixE()}
             </select>
@@ -608,6 +628,7 @@ export default class Bracket extends Component {
               name="d15"
               value={this.state.inputs.d15}
               onChange={this.handleChange}
+              onMouseMove={this.handleChange}
             >
               {this.gameSevenE()}
             </select>
@@ -616,6 +637,7 @@ export default class Bracket extends Component {
               name="d16"
               value={this.state.inputs.d16}
               onChange={this.handleChange}
+              onMouseMove={this.handleChange}
             >
               {this.gameEightE()}
             </select>
@@ -703,7 +725,7 @@ export default class Bracket extends Component {
             </select>
           </div>
           <div className="bracket-column r3">
-          <select
+            <select
               className="pick-dd dd-r3"
               name="d25"
               value={this.state.inputs.d25}
@@ -748,7 +770,7 @@ export default class Bracket extends Component {
             </select>
           </div>
           <div className="bracket-column r4">
-          <select
+            <select
               className="pick-dd dd-r4"
               name="d29"
               value={this.state.inputs.d29}
@@ -773,53 +795,324 @@ export default class Bracket extends Component {
             <div className="dd-r2">
               <label>East/ West</label>
               <select
-              className="pick-dd"
-              name="d31"
-              value={this.state.inputs.d31}
-              onChange={this.handleChange}
-            >
-              {d31Options.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
-            </select>
+                className="pick-dd"
+                name="d31"
+                value={this.state.inputs.d31}
+                onChange={this.handleChange}
+              >
+                {d31Options.map((o) => (
+                  <option key={o}>{o}</option>
+                ))}
+              </select>
             </div>
             <div className="dd-r2">
               <label>
                 <b>Champion</b>
               </label>
-              <select className="pick-dd"></select>
+              <select
+                className="pick-dd"
+                name="d32"
+                value={this.state.inputs.d32}
+                onChange={this.handleChange}
+              >
+                {d32Options.map((o) => (
+                  <option key={o}>{o}</option>
+                ))}
+              </select>
             </div>
             <div className="dd-r2">
               <label> Midwest/ South</label>
-              <select className="pick-dd"></select>
+              <select
+                className="pick-dd"
+                name="d33"
+                value={this.state.inputs.d33}
+                onChange={this.handleChange}
+              >
+                {d33Options.map((o) => (
+                  <option key={o}>{o}</option>
+                ))}
+              </select>
             </div>
           </div>
           <div className="bracket-column r4">
-            <select className="pick-dd dd-r4"></select>
-            <select className="pick-dd dd-r4"></select>
+            <select
+              className="pick-dd dd-r4"
+              name="d34"
+              value={this.state.inputs.d34}
+              onChange={this.handleChange}
+            >
+              {d34Options.map((o) => (
+                <option key={o}>{o}</option>
+              ))}
+            </select>
+            <select
+              className="pick-dd dd-r4"
+              name="d35"
+              value={this.state.inputs.d35}
+              onChange={this.handleChange}
+            >
+              {d35Options.map((o) => (
+                <option key={o}>{o}</option>
+              ))}
+            </select>
           </div>
           <div className="bracket-column r3">
-            <select className="pick-dd dd-r3"></select>
+            <select
+              className="pick-dd dd-r3"
+              name="d36"
+              value={this.state.inputs.d36}
+              onChange={this.handleChange}
+            >
+              {d36Options.map((o) => (
+                <option key={o}>{o}</option>
+              ))}
+            </select>
             <h2>SOUTH</h2>
-            <select className="pick-dd dd-r3"></select>
+            <select
+              className="pick-dd dd-r3"
+              name="d37"
+              value={this.state.inputs.d37}
+              onChange={this.handleChange}
+            >
+              {d37Options.map((o) => (
+                <option key={o}>{o}</option>
+              ))}
+            </select>
             <h2 className="filler">I</h2>
-            <select className="pick-dd dd-r3"></select>
+            <select
+              className="pick-dd dd-r3"
+              name="d38"
+              value={this.state.inputs.d38}
+              onChange={this.handleChange}
+            >
+              {d38Options.map((o) => (
+                <option key={o}>{o}</option>
+              ))}
+            </select>
             <h2>MIDWEST</h2>
-            <select className="pick-dd dd-r3"></select>
+            <select
+              className="pick-dd dd-r3"
+              name="d39"
+              value={this.state.inputs.d39}
+              onChange={this.handleChange}
+            >
+              {d39Options.map((o) => (
+                <option key={o}>{o}</option>
+              ))}
+            </select>
           </div>
           <div className="bracket-column r2">
-            <select className="pick-dd dd-r2"></select>
-            <select className="pick-dd dd-r2"></select>
-            <select className="pick-dd dd-r2"></select>
-            <select className="pick-dd dd-r2"></select>
-            <select className="pick-dd dd-r2"></select>
-            <select className="pick-dd dd-r2"></select>
-            <select className="pick-dd dd-r2"></select>
-            <select className="pick-dd dd-r2"></select>
+            <select
+              className="pick-dd dd-r2"
+              name="d40"
+              value={this.state.inputs.d40}
+              onChange={this.handleChange}
+            >
+              {d40Options.map((o) => (
+                <option key={o}>{o}</option>
+              ))}
+            </select>
+            <select
+              className="pick-dd dd-r2"
+              name="d41"
+              value={this.state.inputs.d41}
+              onChange={this.handleChange}
+            >
+              {d41Options.map((o) => (
+                <option key={o}>{o}</option>
+              ))}
+            </select>
+            <select
+              className="pick-dd dd-r2"
+              name="d42"
+              value={this.state.inputs.d42}
+              onChange={this.handleChange}
+            >
+              {d42Options.map((o) => (
+                <option key={o}>{o}</option>
+              ))}
+            </select>
+            <select
+              className="pick-dd dd-r2"
+              name="d43"
+              value={this.state.inputs.d43}
+              onChange={this.handleChange}
+            >
+              {d43Options.map((o) => (
+                <option key={o}>{o}</option>
+              ))}
+            </select>
+            <select
+              className="pick-dd dd-r2"
+              name="d44"
+              value={this.state.inputs.d44}
+              onChange={this.handleChange}
+            >
+              {d44Options.map((o) => (
+                <option key={o}>{o}</option>
+              ))}
+            </select>
+            <select
+              className="pick-dd dd-r2"
+              name="d45"
+              value={this.state.inputs.d45}
+              onChange={this.handleChange}
+            >
+              {d45Options.map((o) => (
+                <option key={o}>{o}</option>
+              ))}
+            </select>
+            <select
+              className="pick-dd dd-r2"
+              name="d46"
+              value={this.state.inputs.d46}
+              onChange={this.handleChange}
+            >
+              {d46Options.map((o) => (
+                <option key={o}>{o}</option>
+              ))}
+            </select>
+            <select
+              className="pick-dd dd-r2"
+              name="d47"
+              value={this.state.inputs.d47}
+              onChange={this.handleChange}
+            >
+              {d47Options.map((o) => (
+                <option key={o}>{o}</option>
+              ))}
+            </select>
           </div>
           <div className="bracket-column r1">
-            {this.gameSouthDropDown()}
-            {this.gameMidwestDropDown()}
+            <select
+              className="pick-dd dd-r1"
+              name="d48"
+              value={this.state.inputs.d48}
+              onChange={this.handleChange}
+              onMouseMove={this.handleChange}
+            >
+              {this.gameOneS()}
+            </select>
+            <select
+              className="pick-dd dd-r1"
+              name="d49"
+              value={this.state.inputs.d49}
+              onChange={this.handleChange}
+            >
+              {this.gameTwoS()}
+            </select>
+            <select
+              className="pick-dd dd-r1"
+              name="d50"
+              value={this.state.inputs.d50}
+              onChange={this.handleChange}
+            >
+              {this.gameThreeS()}
+            </select>
+            <select
+              className="pick-dd dd-r1"
+              name="d51"
+              value={this.state.inputs.d51}
+              onChange={this.handleChange}
+            >
+              {this.gameFourS()}
+            </select>
+            <select
+              className="pick-dd dd-r1"
+              name="d52"
+              value={this.state.inputs.d52}
+              onChange={this.handleChange}
+            >
+              {this.gameFiveS()}
+            </select>
+            <select
+              className="pick-dd dd-r1"
+              name="d53"
+              value={this.state.inputs.d53}
+              onChange={this.handleChange}
+            >
+              {this.gameSixS()}
+            </select>
+            <select
+              className="pick-dd dd-r1"
+              name="d54"
+              value={this.state.inputs.d54}
+              onChange={this.handleChange}
+            >
+              {this.gameSevenS()}
+            </select>
+            <select
+              className="pick-dd dd-r1"
+              name="d55"
+              value={this.state.inputs.d55}
+              onChange={this.handleChange}
+            >
+              {this.gameEightS()}
+            </select>
+            <select
+              className="pick-dd dd-r1"
+              name="d56"
+              value={this.state.inputs.d56}
+              onChange={this.handleChange}
+            >
+              {this.gameOneMW()}
+            </select>
+            <select
+              className="pick-dd dd-r1"
+              name="d57"
+              value={this.state.inputs.d57}
+              onChange={this.handleChange}
+            >
+              {this.gameTwoMW()}
+            </select>
+            <select
+              className="pick-dd dd-r1"
+              name="d58"
+              value={this.state.inputs.d58}
+              onChange={this.handleChange}
+            >
+              {this.gameThreeMW()}
+            </select>
+            <select
+              className="pick-dd dd-r1"
+              name="d59"
+              value={this.state.inputs.d59}
+              onChange={this.handleChange}
+            >
+              {this.gameFourMW()}
+            </select>
+            <select
+              className="pick-dd dd-r1"
+              name="d60"
+              value={this.state.inputs.d60}
+              onChange={this.handleChange}
+            >
+              {this.gameFiveMW()}
+            </select>
+            <select
+              className="pick-dd dd-r1"
+              name="d61"
+              value={this.state.inputs.d61}
+              onChange={this.handleChange}
+            >
+              {this.gameSixMW()}
+            </select>
+            <select
+              className="pick-dd dd-r1"
+              name="d62"
+              value={this.state.inputs.d62}
+              onChange={this.handleChange}
+            >
+              {this.gameSevenMW()}
+            </select>
+            <select
+              className="pick-dd dd-r1"
+              name="d63"
+              value={this.state.inputs.d63}
+              onChange={this.handleChange}
+            >
+              {this.gameEightMW()}
+            </select>
           </div>
           <div className="bracket-column names">
             <table>
@@ -829,7 +1122,29 @@ export default class Bracket extends Component {
             </table>
           </div>
         </div>
-      </div>
+        <div className="bracket-input">
+        <label>
+          <b>Name/ nickname for bracket:</b>
+        </label>
+        <input type="text"
+              className="form-control"
+              id="floatingInput"
+              value={this.state.name}
+              placeholder="Bob White"
+              onChange={this.onChangeName}
+              required></input>
+              <br></br>
+        <div className="form-group">
+            <input
+              type="submit"
+              value="Submit!"
+              className="w-100 btn btn-lg btn-primary"
+            />
+          </div>
+          <br></br><br></br>
+        </div>
+        
+      </form>
     );
   }
 }

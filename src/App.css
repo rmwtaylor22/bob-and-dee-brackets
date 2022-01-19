@@ -18,6 +18,11 @@ html, body, body > div, .app {
   display: flex;
 }
 
+.bracket-input {
+  padding-left: 40%;
+  padding-right: 40%;
+}
+
 .bracket-page-title {
   width: 100%;
   text-align: center;
@@ -174,4 +179,8 @@ select.pick-dd:focus {
 
 .small-type {
   font-size: x-small;
+}
+
+.pd-sm {
+  padding: 20px;
 }
