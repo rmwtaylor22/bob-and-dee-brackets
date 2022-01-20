@@ -20,7 +20,7 @@ export default class Leaderboard extends Component {
   // This method will get the data from the database.
   componentDidMount() {
     axios
-      .get("http://localhost:5000/user/")
+      .get("http://localhost:5000/picks/")
       .then((response) => {
         this.setState({ users: response.data });
       })
@@ -44,10 +44,10 @@ export default class Leaderboard extends Component {
   // This following section will display the table with the users of individuals.
   render() {
     return (
-      <div className="leaderboard">
+      <div className="leaderboard panel panel-default">
         <h3>Leaderboard</h3>
-        <table className="table table-striped" style={{ marginTop: 20 }}>
-          <thead>
+        <table className="table table-striped table-dark table-bordered" style={{ marginTop: 20 }}>
+          <thead className="thead-dark">
             <tr>
               <th>Name</th>
               <th>Points</th>

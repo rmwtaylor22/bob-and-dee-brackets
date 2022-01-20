@@ -27,10 +27,18 @@
 # THE SOFTWARE.
 
 from bs4 import BeautifulSoup
+from datetime import date
+import pymongo
 import requests
 import sys
 import json
 import time
+
+myclient = pymongo.MongoClient("mongodb+srv://mern:mongodb@brackets.l3ri0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+mydb = myclient["myFirstDatabase"]
+mycol = mydb["teams"]
+#mycol.drop()
+# print(myclient.list_database_names())
 
 # print to stderr (because stdout is where the data goes)
 def eprint(*args, **kwargs):
@@ -40,65 +48,76 @@ def eprint(*args, **kwargs):
 session = requests.Session()
 
 games = []
-year = 2019
+# Current year not filled with data yet
+# year = date.today().year
+year = 2018
 
-with session:
-    payload = {}#{'limit': limit}
-    url = 'https://www.sports-reference.com/cbb/postseason/'+str(year)+'-ncaa.html'
-    req = session.get(url, params=payload)
-    eprint(req.url)
+with open('data2.json', 'w', encoding='utf-8') as f:
+    with session:
+        payload = {}#{'limit': limit}
+        url = 'https://www.sports-reference.com/cbb/postseason/'+str(year)+'-ncaa.html'
+        req = session.get(url, params=payload)
+        eprint(req.url)
 
-    # parse each tourney round from html response
-    soup = BeautifulSoup(req.text, 'html.parser')
+        # parse each tourney round from html response
+        soup = BeautifulSoup(req.text, 'html.parser')
 
-    bracketsNode = soup.find(id="brackets")
-    bracketsChildren = bracketsNode.find_all(True, recursive=False)
+        bracketsNode = soup.find(id="brackets")
+        bracketsChildren = bracketsNode.find_all(True, recursive=False)
 
-    for bracketNode in bracketsChildren:
+        for bracketNode in bracketsChildren:
 
-        # prelimsNode = bracketNode.find('p')
-        # if (prelimsNode != None):
-        #     pass
+            # prelimsNode = bracketNode.find('p')
+            # if (prelimsNode != None):
+            #     pass
 
-        rounds = bracketNode.find_all('div', class_='round')
-        roundNum = 1
-        for round in rounds:
-            roundChildren = round.find_all(True, recursive=False)
+            rounds = bracketNode.find_all('div', class_='round')
+            roundNum = 1
+            for round in rounds:
+                roundChildren = round.find_all(True, recursive=False)
 
-            for gameNode in roundChildren:
-                game = {}
-                game['year'] = year
-                game['bracket'] = bracketNode.get('id')
-                game['round'] = roundNum
+                for gameNode in roundChildren:
+                    game = {}
+                    game['year'] = year
+                    game['bracket'] = bracketNode.get('id')
+                    game['round'] = roundNum
 
-                gameChildren = gameNode.find_all(True, recursive=False)
+                    gameChildren = gameNode.find_all(True, recursive=False)
 
-                if (len(gameChildren) != 3):
-                    continue
+                    if (len(gameChildren) != 3):
+                        continue
 
-                # parse each team
-                def parseTeam(teamNode):
-                    team = {}
-                    classes = teamNode.get("class")
-                    team['won'] = (classes != None) and ("winner" in teamNode.get("class"))
-                    teamChildren = teamNode.find_all(True, recursive=False)
-                    team['seed'] = teamChildren[0].get_text()
-                    team['name'] = teamChildren[1].get_text()
-                    team['score'] = teamChildren[2].get_text()
-                    return team
-                game['teamA'] = parseTeam(gameChildren[0])
-                game['teamB'] = parseTeam(gameChildren[1])
+                    # parse each team
+                    def parseTeam(teamNode):
+                        team = {}
+                        classes = teamNode.get("class")
+                        team['won'] = (classes != None) and ("winner" in teamNode.get("class"))
+                        teamChildren = teamNode.find_all(True, recursive=False)
+                        team['seed'] = teamChildren[0].get_text()
+                        team['name'] = teamChildren[1].get_text()
+                        team['score'] = teamChildren[2].get_text()
+                        return team
+                    game['teamA'] = parseTeam(gameChildren[0])
+                    game['teamB'] = parseTeam(gameChildren[1])
 
-                locationLink = gameChildren[2].contents[0]
-                boxScore = locationLink.get("href")
-                boxScore = boxScore[len("/cbb/boxscores/"):len(boxScore)-len(".html")]
-                game['boxScore'] = boxScore
-                game['date'] = boxScore[0:len("0000-00-00")]
-                game['location'] = locationLink.get_text()[len("at "):]
+                    locationLink = gameChildren[2].contents[0]
+                    boxScore = locationLink.get("href")
+                    boxScore = boxScore[len("/cbb/boxscores/"):len(boxScore)-len(".html")]
+                    game['boxScore'] = boxScore
+                    game['date'] = boxScore[0:len("0000-00-00")]
+                    game['location'] = locationLink.get_text()[len("at "):]
 
-                games.append(game)
+                    games.append(game)
 
-            roundNum += 1
-    time.sleep(0.5)
-print(json.dumps(games))
+                roundNum += 1
+        time.sleep(0.5)
+    print(json.dumps(games))
+    mycol.drop()
+    mycol = mydb["teams"]
+    # mycol.insert_many(json.dumps(games))
+    mycol.insert_many(games)
+
+    # json.dump(games, f, ensure_ascii=False, indent=4)
+
+
 

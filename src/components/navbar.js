@@ -20,24 +20,14 @@ const Navbar = () => {
         </NavLink>
         <div>
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
+            <li className="nav-item pd-sm">
               <Link className="nav-link" to="/">
-                Home
+                Leaderboard
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/create">
-                Register
-              </Link>
-            </li>
-            <li className="nav-item">
+            <li className="nav-item pd-sm">
               <Link className="nav-link" to="/bracket">
                 Bracket
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/letsTest">
-                Test
               </Link>
             </li>
           </ul>
