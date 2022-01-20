@@ -26,6 +26,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+from tkinter import Y
+from turtle import update
 from bs4 import BeautifulSoup
 from datetime import date
 import pymongo
@@ -118,6 +120,83 @@ with open('data2.json', 'w', encoding='utf-8') as f:
     mycol.insert_many(games)
 
     # json.dump(games, f, ensure_ascii=False, indent=4)
+
+
+
+## Now query through that data and count up team wins
+print ("still looking")
+
+
+colPicks = mydb["picks"]
+
+# find winning teams from both teamA and teamB fields
+teamAwins = (mycol.find({"teamA.won": True},{"teamA.name": 1, "teamA.seed": 1, "_id": 0}))
+teamBwins = (mycol.find({"teamB.won": True},{"teamB.name": 1, "teamB.seed": 1, "_id": 0}))
+
+
+# create SEED dictionary to hold teams and seed
+seedDict={}
+
+winnerList = []
+
+for team in teamAwins:
+    winnerList.append(team['teamA']['name'])
+    if (team['teamA']['name'] in seedDict):
+        pass
+    else:
+        seedDict[team['teamA']['name']] = team['teamA']['seed']
+
+for team in teamBwins:
+    winnerList.append(team['teamB']['name'])
+    if (team['teamB']['name'] in seedDict):
+        pass
+    else:
+        seedDict[team['teamB']['name']] = team['teamB']['seed']
+
+print(" --------------------------- ")
+print(winnerList)
+print(" --------------------------- ")
+for key, value in seedDict.items():
+    print ("% s : % s"%(key, value))
+print(" --------------------------- ")
+# count of how many times each team won
+winCount = {}
+for item in winnerList:
+    if (item in winCount):
+        winCount[item] += 1
+    else:
+        winCount[item] = 1
+
+for key, value in winCount.items():
+    print ("% s : % d"%(key, value))
+
+# for each user('picks') get all picks and put in dictionary
+for r in colPicks.find({}):
+    #print(r['_id'])
+    pickCount = {}
+    for count in r['choices']:
+        if (count in pickCount):
+            pickCount[count] += 1
+        else:
+            pickCount[count] = 1
+        
+    # restart points to 0
+    totalPoints = 0
+
+    #### STOPPING HERE
+
+    print("made it")
+
+    # compare picks dictionary with wins dictionary
+    # works without seed information
+    for team in winCount:
+        if team in pickCount:
+            print(team, "- Times picked:", pickCount[team], " Times won: ", winCount[team])
+
+    # add appropriate points to totalPoints
+    # then .post totalPoints to picks.name in collection
+
+
 
 
 

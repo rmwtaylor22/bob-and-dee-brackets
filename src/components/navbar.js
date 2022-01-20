@@ -13,6 +13,7 @@ const Navbar = () => {
   return (
     <div>
       <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <img src={require('./ball.png')} width={"80px"}></img>
         <NavLink className="navbar-brand" to="/">
           <span class="larger">Bob & D</span>
           <br></br>
