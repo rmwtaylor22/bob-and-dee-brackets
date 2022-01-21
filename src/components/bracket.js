@@ -217,7 +217,14 @@ export default class Bracket extends Component {
 
     axios
       .post("http://localhost:5000/user/add", newperson)
-      .then((res) => console.log(res.data));
+      .then((res) => {
+        console.log(res.data.status)
+        if (res.data.status == "ok"){
+          alert("Bracket submitted!")
+        } else {
+          alert("Username already taken :( Choose another!")
+        }
+      });
 
     // We will empty the state after posting the data to the database
     this.setState({
