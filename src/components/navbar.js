@@ -11,30 +11,28 @@ import { Link } from "react-router-dom";
 // Here, we display our Navbar
 const Navbar = () => {
   return (
-    <div>
-      <nav class="navbar navbar-expand navbar-dark bg-dark">
-        <img src={require('./ball.png')} width={"80px"}></img>
-        <NavLink className="navbar-brand" to="/">
-          <span class="larger">Bob & D</span>
-          <br></br>
-          <span class="nav-tilt">brackets</span>
-        </NavLink>
-        <div>
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item pd-sm">
-              <Link className="nav-link" to="/">
-                Leaderboard
-              </Link>
-            </li>
-            <li className="nav-item pd-sm">
-              <Link className="nav-link" to="/bracket">
-                Bracket
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+    <nav class="navbar navbar-expand navbar-dark bg-dark sticky-top">
+      <img src={require("./ball.png")} width={"80px"}></img>
+      <NavLink className="navbar-brand" to="/">
+        <span class="larger">Bob & D</span>
+        <br></br>
+        <span class="nav-tilt">brackets</span>
+      </NavLink>
+      <div>
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item pd-sm">
+            <Link className="nav-link" to="/">
+              Leaderboard
+            </Link>
+          </li>
+          <li className="nav-item pd-sm">
+            <Link className="nav-link" to="/bracket">
+              Bracket
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 };
 

@@ -221,17 +221,11 @@ export default class Bracket extends Component {
         console.log(res.data.status)
         if (res.data.status == "ok"){
           alert("Bracket submitted!")
+          window.location = '/';
         } else {
           alert("Username already taken :( Choose another!")
         }
       });
-
-    // We will empty the state after posting the data to the database
-    this.setState({
-      name: "",
-      d1: "",
-      d2: "",
-    });
   }
 
   // This method will get the data from the database.
