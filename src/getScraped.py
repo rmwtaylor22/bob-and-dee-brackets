@@ -54,85 +54,76 @@ games = []
 # year = date.today().year
 year = 2018
 
-with open('data2.json', 'w', encoding='utf-8') as f:
-    with session:
-        payload = {}#{'limit': limit}
-        url = 'https://www.sports-reference.com/cbb/postseason/'+str(year)+'-ncaa.html'
-        req = session.get(url, params=payload)
-        eprint(req.url)
 
-        # parse each tourney round from html response
-        soup = BeautifulSoup(req.text, 'html.parser')
+with session:
+    payload = {}#{'limit': limit}
+    url = 'https://www.sports-reference.com/cbb/postseason/'+str(year)+'-ncaa.html'
+    req = session.get(url, params=payload)
+    eprint(req.url)
 
-        bracketsNode = soup.find(id="brackets")
-        bracketsChildren = bracketsNode.find_all(True, recursive=False)
+    # parse each tourney round from html response
+    soup = BeautifulSoup(req.text, 'html.parser')
 
-        for bracketNode in bracketsChildren:
+    bracketsNode = soup.find(id="brackets")
+    bracketsChildren = bracketsNode.find_all(True, recursive=False)
 
-            # prelimsNode = bracketNode.find('p')
-            # if (prelimsNode != None):
-            #     pass
+    for bracketNode in bracketsChildren:
+        rounds = bracketNode.find_all('div', class_='round')
+        roundNum = 1
+        for round in rounds:
+            roundChildren = round.find_all(True, recursive=False)
 
-            rounds = bracketNode.find_all('div', class_='round')
-            roundNum = 1
-            for round in rounds:
-                roundChildren = round.find_all(True, recursive=False)
+            for gameNode in roundChildren:
+                game = {}
+                game['year'] = year
+                game['bracket'] = bracketNode.get('id')
+                game['round'] = roundNum
 
-                for gameNode in roundChildren:
-                    game = {}
-                    game['year'] = year
-                    game['bracket'] = bracketNode.get('id')
-                    game['round'] = roundNum
+                gameChildren = gameNode.find_all(True, recursive=False)
 
-                    gameChildren = gameNode.find_all(True, recursive=False)
+                if (len(gameChildren) != 3):
+                    continue
 
-                    if (len(gameChildren) != 3):
-                        continue
+                # parse each team
+                def parseTeam(teamNode):
+                    team = {}
+                    classes = teamNode.get("class")
+                    team['won'] = (classes != None) and ("winner" in teamNode.get("class"))
+                    teamChildren = teamNode.find_all(True, recursive=False)
+                    team['seed'] = teamChildren[0].get_text()
+                    team['name'] = teamChildren[1].get_text()
+                    team['score'] = teamChildren[2].get_text()
+                    return team
+                game['teamA'] = parseTeam(gameChildren[0])
+                game['teamB'] = parseTeam(gameChildren[1])
 
-                    # parse each team
-                    def parseTeam(teamNode):
-                        team = {}
-                        classes = teamNode.get("class")
-                        team['won'] = (classes != None) and ("winner" in teamNode.get("class"))
-                        teamChildren = teamNode.find_all(True, recursive=False)
-                        team['seed'] = teamChildren[0].get_text()
-                        team['name'] = teamChildren[1].get_text()
-                        team['score'] = teamChildren[2].get_text()
-                        return team
-                    game['teamA'] = parseTeam(gameChildren[0])
-                    game['teamB'] = parseTeam(gameChildren[1])
+                locationLink = gameChildren[2].contents[0]
+                boxScore = locationLink.get("href")
+                boxScore = boxScore[len("/cbb/boxscores/"):len(boxScore)-len(".html")]
+                game['boxScore'] = boxScore
+                game['date'] = boxScore[0:len("0000-00-00")]
+                game['location'] = locationLink.get_text()[len("at "):]
 
-                    locationLink = gameChildren[2].contents[0]
-                    boxScore = locationLink.get("href")
-                    boxScore = boxScore[len("/cbb/boxscores/"):len(boxScore)-len(".html")]
-                    game['boxScore'] = boxScore
-                    game['date'] = boxScore[0:len("0000-00-00")]
-                    game['location'] = locationLink.get_text()[len("at "):]
+                games.append(game)
 
-                    games.append(game)
-
-                roundNum += 1
-        time.sleep(0.5)
-    print(json.dumps(games))
-    mycol.drop()
-    mycol = mydb["teams"]
-    # mycol.insert_many(json.dumps(games))
-    mycol.insert_many(games)
-
-    # json.dump(games, f, ensure_ascii=False, indent=4)
+            roundNum += 1
+    time.sleep(0.5)
+print(json.dumps(games))
+mycol.drop()
+mycol = mydb["teams"]
+mycol.insert_many(games)
 
 
+#######################################################
+## Now query through that data and count up team wins##
+#######################################################
 
-## Now query through that data and count up team wins
-print ("still looking")
-
-
+# Grab picks table
 colPicks = mydb["picks"]
 
 # find winning teams from both teamA and teamB fields
 teamAwins = (mycol.find({"teamA.won": True},{"teamA.name": 1, "teamA.seed": 1, "_id": 0}))
 teamBwins = (mycol.find({"teamB.won": True},{"teamB.name": 1, "teamB.seed": 1, "_id": 0}))
-
 
 # create SEED dictionary to hold teams and seed
 seedDict={}
@@ -153,12 +144,6 @@ for team in teamBwins:
     else:
         seedDict[team['teamB']['name']] = team['teamB']['seed']
 
-print(" --------------------------- ")
-print(winnerList)
-print(" --------------------------- ")
-for key, value in seedDict.items():
-    print ("% s : % s"%(key, value))
-print(" --------------------------- ")
 # count of how many times each team won
 winCount = {}
 for item in winnerList:
@@ -180,21 +165,30 @@ for r in colPicks.find({}):
         else:
             pickCount[count] = 1
         
-    # restart points to 0
+    # restart points
     totalPoints = 0
-
-    #### STOPPING HERE
-
-    print("made it")
 
     # compare picks dictionary with wins dictionary
     # works without seed information
     for team in winCount:
         if team in pickCount:
-            print(team, "- Times picked:", pickCount[team], " Times won: ", winCount[team])
+            if (pickCount[team] <= winCount[team]):
+                totalPoints += int(seedDict[team])*2^int(pickCount[team])
+            else:
+                totalPoints += int(seedDict[team])*2^int(winCount[team])
+    
+    #print(r['name'], "scored", totalPoints)
 
-    # add appropriate points to totalPoints
-    # then .post totalPoints to picks.name in collection
+    # Update totalPoints in picks collection
+    colPicks.update_one({
+        '_id': r['_id']
+        },{
+        '$set': {
+            'points': totalPoints
+        }
+        }, upsert=False)
+
+    ## FOR FUTURE - instead of updating, make new table and add new entry at each update. Then make graph on new tab in website to show how people do throughout the tournament.
 
 
 

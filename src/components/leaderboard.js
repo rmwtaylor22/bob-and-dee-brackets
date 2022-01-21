@@ -60,7 +60,7 @@ export default class Leaderboard extends Component {
   // This following section will display the table with the users of individuals.
   render() {
     return (
-      <><div className="leaderboard panel panel-default">
+      <div className="leaderboard panel panel-default">
         <h3>Leaderboard</h3>
         <table
           className="table table-striped table-dark table-bordered"
@@ -74,21 +74,7 @@ export default class Leaderboard extends Component {
           </thead>
           <tbody>{this.userList()}</tbody>
         </table>
-      </div><div className="leaderboard panel panel-default">
-          <h3>Leaderboard</h3>
-          <table
-            className="table table-striped table-dark table-bordered"
-            style={{ marginTop: 20 }}
-          >
-            <thead className="thead-dark">
-              <tr>
-                <th>Name</th>
-                <th>Points</th>
-              </tr>
-            </thead>
-            <tbody>{this.winnersList()}</tbody>
-          </table>
-        </div></>
+      </div>
     );
   }
 }
