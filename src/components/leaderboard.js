@@ -60,20 +60,24 @@ export default class Leaderboard extends Component {
   // This following section will display the table with the users of individuals.
   render() {
     return (
-      <div className="leaderboard panel panel-default">
-        <h3>Leaderboard</h3>
-        <table
-          className="table table-striped table-dark table-bordered"
-          style={{ marginTop: 20 }}
-        >
-          <thead className="thead-dark">
-            <tr>
-              <th>Name</th>
-              <th>Points</th>
-            </tr>
-          </thead>
-          <tbody>{this.userList()}</tbody>
-        </table>
+      <div className="leaderboard-container">
+        <div className="leaderboard panel panel-default">
+          <h3>Leaderboard</h3>
+          <table
+            className="table table-striped table-dark table-bordered"
+            style={{ marginTop: 20 }}
+          >
+            <thead className="thead-dark">
+              <tr>
+                <th>Name</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>{this.userList()}</tbody>
+          </table>
+        </div>
+        <div className="leaderboard-image"><img src={require("./bob.png")} width={"245px"} height={"245px"}></img></div>
+        <div className="leaderboard-image"><img src={require("./donna.png")} width={"245px"} height={"245px"}></img></div>
       </div>
     );
   }

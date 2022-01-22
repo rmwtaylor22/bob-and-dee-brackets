@@ -2,16 +2,31 @@ import React, { Component } from "react";
 import axios from "axios";
 import "../App.css";
 
-const Game = (props) => (
+const GameSM = (props) => (
   <tr>
     <br></br>
     <tr>
       <td>{props.game.teamA.seed}</td>
-      <td>{props.game.teamA.name}</td>
+      <td><b>{props.game.teamA.name}</b></td>
     </tr>
     <tr>
       <td>{props.game.teamB.seed}</td>
-      <td>{props.game.teamB.name}</td>
+      <td><b>{props.game.teamB.name}</b></td>
+    </tr>
+    <br></br>
+  </tr>
+);
+
+const GameEW = (props) => (
+  <tr>
+    <br></br>
+    <tr className="table-just">
+      <td className="table-right-just"><b>{props.game.teamA.name}</b></td>
+      <td className="table-right-just table-num">{props.game.teamA.seed}</td>
+    </tr>
+    <tr>
+      <td className="table-right-just"><b>{props.game.teamB.name}</b></td>
+      <td className="table-right-just table-num">{props.game.teamB.seed}</td>
     </tr>
     <br></br>
   </tr>
@@ -19,7 +34,7 @@ const Game = (props) => (
 
 const GameDropDown = (props) => (
   <>
-    <option disabled selected value></option>
+    <option disabled selected value>-select-</option>
     <option key={props.game.teamA.name}>{props.game.teamA.name}</option>
     <option key={props.game.teamB.name}>{props.game.teamB.name}</option>
   </>
@@ -264,7 +279,7 @@ export default class Bracket extends Component {
   // This method will map out the games on the table
   gameWest() {
     return this.state.gamesWest.map((currentGame, index) => {
-      return <Game game={currentGame} key={currentGame._id} />;
+      return <GameEW game={currentGame} key={currentGame._id} />;
     });
   }
 
@@ -277,7 +292,7 @@ export default class Bracket extends Component {
   // This method will map out the games on the table
   gameEast() {
     return this.state.gamesEast.map((currentGame) => {
-      return <Game game={currentGame} key={currentGame._id} />;
+      return <GameEW game={currentGame} key={currentGame._id} />;
     });
   }
 
@@ -289,7 +304,7 @@ export default class Bracket extends Component {
 
   gameSouth() {
     return this.state.gamesSouth.map((currentGame) => {
-      return <Game game={currentGame} key={currentGame._id} />;
+      return <GameSM game={currentGame} key={currentGame._id} />;
     });
   }
 
@@ -301,7 +316,7 @@ export default class Bracket extends Component {
 
   gameMidwest() {
     return this.state.gamesMidwest.map((currentGame) => {
-      return <Game game={currentGame} key={currentGame._id} />;
+      return <GameSM game={currentGame} key={currentGame._id} />;
     });
   }
 
@@ -543,61 +558,19 @@ export default class Bracket extends Component {
     });
   }
 
-  getDropDown(options) {
+  getDropDown(op1, op2) {
     return (
       <>
         <option disabled selected value>
-          {" "}
           -select-
         </option>
-        <option key={options[0]}>{options[0]}</option>
-        <option key={options[1]}>{options[1]}</option>
+        {op1 ? <option>{op1}</option> : <option></option>}
+        {op2 ? <option>{op2}</option> : <option></option>}
       </>
     );
   }
 
   render() {
-    //row 2
-    const d17Options = [this.state.inputs.d1, this.state.inputs.d2];
-    const d18Options = [this.state.inputs.d3, this.state.inputs.d4];
-    const d19Options = [this.state.inputs.d5, this.state.inputs.d6];
-    const d20Options = [this.state.inputs.d7, this.state.inputs.d8];
-    const d21Options = [this.state.inputs.d9, this.state.inputs.d10];
-    const d22Options = [this.state.inputs.d11, this.state.inputs.d12];
-    const d23Options = [this.state.inputs.d13, this.state.inputs.d14];
-    const d24Options = [this.state.inputs.d15, this.state.inputs.d16];
-    // row 3
-    const d25Options = [this.state.inputs.d17, this.state.inputs.d18];
-    const d26Options = [this.state.inputs.d19, this.state.inputs.d20];
-    const d27Options = [this.state.inputs.d21, this.state.inputs.d22];
-    const d28Options = [this.state.inputs.d23, this.state.inputs.d24];
-    // row 4
-    const d29Options = [this.state.inputs.d25, this.state.inputs.d26];
-    const d30Options = [this.state.inputs.d27, this.state.inputs.d28];
-    // row 5
-    const d31Options = [this.state.inputs.d29, this.state.inputs.d30];
-    // champion
-    const d32Options = [this.state.inputs.d31, this.state.inputs.d33];
-    // row 5
-    const d33Options = [this.state.inputs.d34, this.state.inputs.d35];
-    // row 4
-    const d34Options = [this.state.inputs.d36, this.state.inputs.d37];
-    const d35Options = [this.state.inputs.d38, this.state.inputs.d39];
-    // row 3
-    const d36Options = [this.state.inputs.d40, this.state.inputs.d41];
-    const d37Options = [this.state.inputs.d42, this.state.inputs.d43];
-    const d38Options = [this.state.inputs.d44, this.state.inputs.d45];
-    const d39Options = [this.state.inputs.d46, this.state.inputs.d47];
-    // row 2
-    const d40Options = [this.state.inputs.d48, this.state.inputs.d49];
-    const d41Options = [this.state.inputs.d50, this.state.inputs.d51];
-    const d42Options = [this.state.inputs.d52, this.state.inputs.d53];
-    const d43Options = [this.state.inputs.d54, this.state.inputs.d55];
-    const d44Options = [this.state.inputs.d56, this.state.inputs.d57];
-    const d45Options = [this.state.inputs.d58, this.state.inputs.d59];
-    const d46Options = [this.state.inputs.d60, this.state.inputs.d61];
-    const d47Options = [this.state.inputs.d62, this.state.inputs.d63];
-
     return (
       <form onSubmit={this.onSubmit}>
         <h1 className="bracket-page-title"></h1>
@@ -729,61 +702,56 @@ export default class Bracket extends Component {
               name="d17"
               onChange={this.handleChange}
             >
-              <option disabled selected value>
-                {" "}
-                -select-
-              </option>
-              <option key={d17Options[0]}>{d17Options[0]}</option>
-              <option key={d17Options[1]}>{d17Options[1]}</option>
+              {this.getDropDown(this.state.inputs.d1, this.state.inputs.d2)}
             </select>
             <select
               className="pick-dd dd-r2"
               name="d18"
               onChange={this.handleChange}
             >
-              {this.getDropDown(d18Options)}
+              {this.getDropDown(this.state.inputs.d3, this.state.inputs.d4)}
             </select>
             <select
               className="pick-dd dd-r2"
               name="d19"
               onChange={this.handleChange}
             >
-              {this.getDropDown(d19Options)}
+              {this.getDropDown(this.state.inputs.d5, this.state.inputs.d6)}
             </select>
             <select
               className="pick-dd dd-r2"
               name="d20"
               onChange={this.handleChange}
             >
-              {this.getDropDown(d20Options)}
+              {this.getDropDown(this.state.inputs.d7, this.state.inputs.d8)}
             </select>
             <select
               className="pick-dd dd-r2"
               name="d21"
               onChange={this.handleChange}
             >
-              {this.getDropDown(d21Options)}
+              {this.getDropDown(this.state.inputs.d9, this.state.inputs.d10)}
             </select>
             <select
               className="pick-dd dd-r2"
               name="d22"
               onChange={this.handleChange}
             >
-              {this.getDropDown(d22Options)}
+              {this.getDropDown(this.state.inputs.d11, this.state.inputs.d12)}
             </select>
             <select
               className="pick-dd dd-r2"
               name="d23"
               onChange={this.handleChange}
             >
-              {this.getDropDown(d23Options)}
+              {this.getDropDown(this.state.inputs.d13, this.state.inputs.d14)}
             </select>
             <select
               className="pick-dd dd-r2"
               name="d24"
               onChange={this.handleChange}
             >
-              {this.getDropDown(d24Options)}
+              {this.getDropDown(this.state.inputs.d15, this.state.inputs.d16)}
             </select>
           </div>
           <div className="bracket-column r3">
@@ -792,9 +760,7 @@ export default class Bracket extends Component {
               name="d25"
               onChange={this.handleChange}
             >
-              {d25Options.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
+              {this.getDropDown(this.state.inputs.d17, this.state.inputs.d18)}
             </select>
             <h2 className="nopadding">WEST</h2>
             <select
@@ -802,9 +768,7 @@ export default class Bracket extends Component {
               name="d26"
               onChange={this.handleChange}
             >
-              {d26Options.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
+              {this.getDropDown(this.state.inputs.d19, this.state.inputs.d20)}
             </select>
             <h2 className="filler">I</h2>
             <select
@@ -812,9 +776,7 @@ export default class Bracket extends Component {
               name="d27"
               onChange={this.handleChange}
             >
-              {d27Options.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
+              {this.getDropDown(this.state.inputs.d21, this.state.inputs.d22)}
             </select>
             <h2 className="nopadding">EAST</h2>
             <select
@@ -822,9 +784,7 @@ export default class Bracket extends Component {
               name="d28"
               onChange={this.handleChange}
             >
-              {d28Options.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
+              {this.getDropDown(this.state.inputs.d23, this.state.inputs.d24)}
             </select>
           </div>
           <div className="bracket-column r4">
@@ -833,18 +793,14 @@ export default class Bracket extends Component {
               name="d29"
               onChange={this.handleChange}
             >
-              {d29Options.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
+              {this.getDropDown(this.state.inputs.d25, this.state.inputs.d26)}
             </select>
             <select
               className="pick-dd dd-r4"
               name="d30"
               onChange={this.handleChange}
             >
-              {d30Options.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
+              {this.getDropDown(this.state.inputs.d27, this.state.inputs.d28)}
             </select>
           </div>
           <div className="bracket-column r5">
@@ -855,9 +811,7 @@ export default class Bracket extends Component {
                 name="d31"
                 onChange={this.handleChange}
               >
-                {d31Options.map((o) => (
-                  <option key={o}>{o}</option>
-                ))}
+                {this.getDropDown(this.state.inputs.d29, this.state.inputs.d30)}
               </select>
             </div>
             <div className="dd-r2">
@@ -869,9 +823,7 @@ export default class Bracket extends Component {
                 name="d32"
                 onChange={this.handleChange}
               >
-                {d32Options.map((o) => (
-                  <option key={o}>{o}</option>
-                ))}
+                {this.getDropDown(this.state.inputs.d31, this.state.inputs.d33)}
               </select>
             </div>
             <div className="dd-r2">
@@ -881,9 +833,7 @@ export default class Bracket extends Component {
                 name="d33"
                 onChange={this.handleChange}
               >
-                {d33Options.map((o) => (
-                  <option key={o}>{o}</option>
-                ))}
+                {this.getDropDown(this.state.inputs.d34, this.state.inputs.d35)}
               </select>
             </div>
           </div>
@@ -893,18 +843,14 @@ export default class Bracket extends Component {
               name="d34"
               onChange={this.handleChange}
             >
-              {d34Options.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
+              {this.getDropDown(this.state.inputs.d36, this.state.inputs.d37)}
             </select>
             <select
               className="pick-dd dd-r4"
               name="d35"
               onChange={this.handleChange}
             >
-              {d35Options.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
+              {this.getDropDown(this.state.inputs.d38, this.state.inputs.d39)}
             </select>
           </div>
           <div className="bracket-column r3">
@@ -913,9 +859,7 @@ export default class Bracket extends Component {
               name="d36"
               onChange={this.handleChange}
             >
-              {d36Options.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
+              {this.getDropDown(this.state.inputs.d40, this.state.inputs.d41)}
             </select>
             <h2>SOUTH</h2>
             <select
@@ -923,9 +867,7 @@ export default class Bracket extends Component {
               name="d37"
               onChange={this.handleChange}
             >
-              {d37Options.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
+              {this.getDropDown(this.state.inputs.d42, this.state.inputs.d43)}
             </select>
             <h2 className="filler">I</h2>
             <select
@@ -933,9 +875,7 @@ export default class Bracket extends Component {
               name="d38"
               onChange={this.handleChange}
             >
-              {d38Options.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
+              {this.getDropDown(this.state.inputs.d44, this.state.inputs.d45)}
             </select>
             <h2>MIDWEST</h2>
             <select
@@ -943,9 +883,7 @@ export default class Bracket extends Component {
               name="d39"
               onChange={this.handleChange}
             >
-              {d39Options.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
+              {this.getDropDown(this.state.inputs.d46, this.state.inputs.d47)}
             </select>
           </div>
           <div className="bracket-column r2">
@@ -954,72 +892,56 @@ export default class Bracket extends Component {
               name="d40"
               onChange={this.handleChange}
             >
-              {d40Options.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
+              {this.getDropDown(this.state.inputs.d48, this.state.inputs.d49)}
             </select>
             <select
               className="pick-dd dd-r2"
               name="d41"
               onChange={this.handleChange}
             >
-              {d41Options.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
+              {this.getDropDown(this.state.inputs.d50, this.state.inputs.d51)}
             </select>
             <select
               className="pick-dd dd-r2"
               name="d42"
               onChange={this.handleChange}
             >
-              {d42Options.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
+              {this.getDropDown(this.state.inputs.d52, this.state.inputs.d53)}
             </select>
             <select
               className="pick-dd dd-r2"
               name="d43"
               onChange={this.handleChange}
             >
-              {d43Options.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
+              {this.getDropDown(this.state.inputs.d54, this.state.inputs.d55)}
             </select>
             <select
               className="pick-dd dd-r2"
               name="d44"
               onChange={this.handleChange}
             >
-              {d44Options.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
+              {this.getDropDown(this.state.inputs.d56, this.state.inputs.d57)}
             </select>
             <select
               className="pick-dd dd-r2"
               name="d45"
               onChange={this.handleChange}
             >
-              {d45Options.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
+              {this.getDropDown(this.state.inputs.d58, this.state.inputs.d59)}
             </select>
             <select
               className="pick-dd dd-r2"
               name="d46"
               onChange={this.handleChange}
             >
-              {d46Options.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
+              {this.getDropDown(this.state.inputs.d60, this.state.inputs.d61)}
             </select>
             <select
               className="pick-dd dd-r2"
               name="d47"
               onChange={this.handleChange}
             >
-              {d47Options.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
+              {this.getDropDown(this.state.inputs.d62, this.state.inputs.d63)}
             </select>
           </div>
           <div className="bracket-column r1">
