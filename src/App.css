@@ -65,6 +65,17 @@ h2 {
   text-align: center;
 }
 
+img {
+  transition: transform .3s ease-in-out;
+}
+.donna img:hover {
+  transform: rotate(20deg);
+}
+
+.bob img:hover {
+  transform: rotate(-20deg);
+}
+
 .labels {
   margin: 0%;
 }

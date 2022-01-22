@@ -61,6 +61,7 @@ export default class Leaderboard extends Component {
   render() {
     return (
       <div className="leaderboard-container">
+        <div className="leaderboard-image bob"><img src={require("./bob2.png")} width={"245px"} height={"245px"}></img></div>
         <div className="leaderboard panel panel-default">
           <h3>Leaderboard</h3>
           <table
@@ -76,8 +77,7 @@ export default class Leaderboard extends Component {
             <tbody>{this.userList()}</tbody>
           </table>
         </div>
-        <div className="leaderboard-image"><img src={require("./bob.png")} width={"245px"} height={"245px"}></img></div>
-        <div className="leaderboard-image"><img src={require("./donna.png")} width={"245px"} height={"245px"}></img></div>
+        <div className="leaderboard-image donna"><img src={require("./donna.png")} width={"245px"} height={"245px"}></img></div>
       </div>
     );
   }

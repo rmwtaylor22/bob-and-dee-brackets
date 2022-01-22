@@ -34,7 +34,7 @@ const GameEW = (props) => (
 
 const GameDropDown = (props) => (
   <>
-    <option disabled selected value>-select-</option>
+    <option disabled selected value=""></option>
     <option key={props.game.teamA.name}>{props.game.teamA.name}</option>
     <option key={props.game.teamB.name}>{props.game.teamB.name}</option>
   </>
@@ -561,11 +561,10 @@ export default class Bracket extends Component {
   getDropDown(op1, op2) {
     return (
       <>
-        <option disabled selected value>
-          -select-
+        <option disabled selected value="">
         </option>
-        {op1 ? <option>{op1}</option> : <option></option>}
-        {op2 ? <option>{op2}</option> : <option></option>}
+        {op1 ? <option>{op1}</option> : null}
+        {op2 ? <option>{op2}</option> : null}
       </>
     );
   }
@@ -587,6 +586,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d1"
               onChange={this.handleChange}
+              required
             >
               {this.gameOneW()}
             </select>
@@ -594,6 +594,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d2"
               onChange={this.handleChange}
+              required
             >
               {this.gameTwoW()}
             </select>
@@ -601,6 +602,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d3"
               onChange={this.handleChange}
+              required
             >
               {this.gameThreeW()}
             </select>
@@ -608,6 +610,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d4"
               onChange={this.handleChange}
+              required
             >
               {this.gameFourW()}
             </select>
@@ -615,6 +618,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d5"
               onChange={this.handleChange}
+              required
             >
               {this.gameFiveW()}
             </select>
@@ -622,6 +626,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d6"
               onChange={this.handleChange}
+              required
             >
               {this.gameSixW()}
             </select>
@@ -629,6 +634,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d7"
               onChange={this.handleChange}
+              required
             >
               {this.gameSevenW()}
             </select>
@@ -636,6 +642,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d8"
               onChange={this.handleChange}
+              required
             >
               {this.gameEightW()}
             </select>
@@ -643,6 +650,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d9"
               onChange={this.handleChange}
+              required
             >
               {this.gameOneE()}
             </select>
@@ -650,6 +658,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d10"
               onChange={this.handleChange}
+              required
             >
               {this.gameTwoE()}
             </select>
@@ -657,6 +666,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d11"
               onChange={this.handleChange}
+              required
             >
               {this.gameThreeE()}
             </select>
@@ -664,6 +674,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d12"
               onChange={this.handleChange}
+              required
             >
               {this.gameFourE()}
             </select>
@@ -671,6 +682,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d13"
               onChange={this.handleChange}
+              required
             >
               {this.gameFiveE()}
             </select>
@@ -678,6 +690,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d14"
               onChange={this.handleChange}
+              required
             >
               {this.gameSixE()}
             </select>
@@ -685,6 +698,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d15"
               onChange={this.handleChange}
+              required
             >
               {this.gameSevenE()}
             </select>
@@ -692,6 +706,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d16"
               onChange={this.handleChange}
+              required
             >
               {this.gameEightE()}
             </select>
@@ -701,6 +716,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r2"
               name="d17"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d1, this.state.inputs.d2)}
             </select>
@@ -708,6 +724,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r2"
               name="d18"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d3, this.state.inputs.d4)}
             </select>
@@ -715,6 +732,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r2"
               name="d19"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d5, this.state.inputs.d6)}
             </select>
@@ -722,6 +740,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r2"
               name="d20"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d7, this.state.inputs.d8)}
             </select>
@@ -729,6 +748,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r2"
               name="d21"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d9, this.state.inputs.d10)}
             </select>
@@ -736,6 +756,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r2"
               name="d22"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d11, this.state.inputs.d12)}
             </select>
@@ -743,6 +764,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r2"
               name="d23"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d13, this.state.inputs.d14)}
             </select>
@@ -750,6 +772,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r2"
               name="d24"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d15, this.state.inputs.d16)}
             </select>
@@ -759,6 +782,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r3"
               name="d25"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d17, this.state.inputs.d18)}
             </select>
@@ -767,6 +791,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r3"
               name="d26"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d19, this.state.inputs.d20)}
             </select>
@@ -775,6 +800,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r3"
               name="d27"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d21, this.state.inputs.d22)}
             </select>
@@ -783,6 +809,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r3"
               name="d28"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d23, this.state.inputs.d24)}
             </select>
@@ -792,6 +819,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r4"
               name="d29"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d25, this.state.inputs.d26)}
             </select>
@@ -799,6 +827,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r4"
               name="d30"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d27, this.state.inputs.d28)}
             </select>
@@ -810,6 +839,7 @@ export default class Bracket extends Component {
                 className="pick-dd"
                 name="d31"
                 onChange={this.handleChange}
+                required
               >
                 {this.getDropDown(this.state.inputs.d29, this.state.inputs.d30)}
               </select>
@@ -822,6 +852,7 @@ export default class Bracket extends Component {
                 className="pick-dd"
                 name="d32"
                 onChange={this.handleChange}
+                required
               >
                 {this.getDropDown(this.state.inputs.d31, this.state.inputs.d33)}
               </select>
@@ -832,6 +863,7 @@ export default class Bracket extends Component {
                 className="pick-dd"
                 name="d33"
                 onChange={this.handleChange}
+                required
               >
                 {this.getDropDown(this.state.inputs.d34, this.state.inputs.d35)}
               </select>
@@ -842,6 +874,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r4"
               name="d34"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d36, this.state.inputs.d37)}
             </select>
@@ -849,6 +882,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r4"
               name="d35"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d38, this.state.inputs.d39)}
             </select>
@@ -858,6 +892,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r3"
               name="d36"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d40, this.state.inputs.d41)}
             </select>
@@ -866,6 +901,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r3"
               name="d37"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d42, this.state.inputs.d43)}
             </select>
@@ -874,6 +910,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r3"
               name="d38"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d44, this.state.inputs.d45)}
             </select>
@@ -882,6 +919,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r3"
               name="d39"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d46, this.state.inputs.d47)}
             </select>
@@ -891,6 +929,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r2"
               name="d40"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d48, this.state.inputs.d49)}
             </select>
@@ -898,6 +937,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r2"
               name="d41"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d50, this.state.inputs.d51)}
             </select>
@@ -905,6 +945,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r2"
               name="d42"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d52, this.state.inputs.d53)}
             </select>
@@ -912,6 +953,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r2"
               name="d43"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d54, this.state.inputs.d55)}
             </select>
@@ -919,6 +961,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r2"
               name="d44"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d56, this.state.inputs.d57)}
             </select>
@@ -926,6 +969,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r2"
               name="d45"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d58, this.state.inputs.d59)}
             </select>
@@ -933,6 +977,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r2"
               name="d46"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d60, this.state.inputs.d61)}
             </select>
@@ -940,6 +985,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r2"
               name="d47"
               onChange={this.handleChange}
+              required
             >
               {this.getDropDown(this.state.inputs.d62, this.state.inputs.d63)}
             </select>
@@ -949,6 +995,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d48"
               onChange={this.handleChange}
+              required
             >
               {this.gameOneS()}
             </select>
@@ -956,6 +1003,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d49"
               onChange={this.handleChange}
+              required
             >
               {this.gameTwoS()}
             </select>
@@ -963,6 +1011,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d50"
               onChange={this.handleChange}
+              required
             >
               {this.gameThreeS()}
             </select>
@@ -970,6 +1019,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d51"
               onChange={this.handleChange}
+              required
             >
               {this.gameFourS()}
             </select>
@@ -977,6 +1027,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d52"
               onChange={this.handleChange}
+              required
             >
               {this.gameFiveS()}
             </select>
@@ -984,6 +1035,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d53"
               onChange={this.handleChange}
+              required
             >
               {this.gameSixS()}
             </select>
@@ -991,6 +1043,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d54"
               onChange={this.handleChange}
+              required
             >
               {this.gameSevenS()}
             </select>
@@ -998,6 +1051,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d55"
               onChange={this.handleChange}
+              required
             >
               {this.gameEightS()}
             </select>
@@ -1005,6 +1059,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d56"
               onChange={this.handleChange}
+              required
             >
               {this.gameOneMW()}
             </select>
@@ -1012,6 +1067,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d57"
               onChange={this.handleChange}
+              required
             >
               {this.gameTwoMW()}
             </select>
@@ -1019,6 +1075,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d58"
               onChange={this.handleChange}
+              required
             >
               {this.gameThreeMW()}
             </select>
@@ -1026,6 +1083,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d59"
               onChange={this.handleChange}
+              required
             >
               {this.gameFourMW()}
             </select>
@@ -1033,6 +1091,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d60"
               onChange={this.handleChange}
+              required
             >
               {this.gameFiveMW()}
             </select>
@@ -1040,6 +1099,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d61"
               onChange={this.handleChange}
+              required
             >
               {this.gameSixMW()}
             </select>
@@ -1047,6 +1107,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d62"
               onChange={this.handleChange}
+              required
             >
               {this.gameSevenMW()}
             </select>
@@ -1054,6 +1115,7 @@ export default class Bracket extends Component {
               className="pick-dd dd-r1"
               name="d63"
               onChange={this.handleChange}
+              required
             >
               {this.gameEightMW()}
             </select>
