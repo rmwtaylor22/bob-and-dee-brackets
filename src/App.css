@@ -141,6 +141,12 @@ nav {
   margin-bottom: 230px;
 }
 
+.refresh {
+  color: white;
+  font-size: small;
+  font-weight: 100;
+}
+
 select {
 
   /* styling */
