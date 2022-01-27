@@ -1,7 +1,5 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 // This will require to npm install axios
-import axios from "axios";
-import { Link } from "react-router-dom";
 
 const User = (props) => (
   <tr>
@@ -82,3 +80,5 @@ export default class Leaderboard extends Component {
     );
   }
 }
+
+export default Leaderboard

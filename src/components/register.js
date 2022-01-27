@@ -1,9 +1,14 @@
 import React, { SyntheticEvent, useState } from "react";
+import { Redirect } from "react-router-dom";
 
 const Register = () => {
   const [name, setName] = useState('');
-  const [email, setUsername] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  const [success, setSuccess] = useState('');
+
+  const navigate = Redirect();
 
   // couldn't add synthetic event, may cause bugs later
   const submit = async(e) => {
@@ -14,14 +19,19 @@ const Register = () => {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
           name,
-          email,
+          username,
           password
       })
       });
 
       const content = await response.json();
 
-      console.log(content);
+      if (!content) {
+        window.alert("Username already taken:(");
+      } else {
+        console.log(content);
+        navigate("/");
+      }
   }
 
   return (
@@ -41,10 +51,10 @@ const Register = () => {
         </div>
         <div className="form-floating">
           <input
-            type="email"
+            type="text"
             className="form-control"
             id="floatingInput"
-            placeholder="name@example.com"
+            placeholder="bowhite"
             required
             onChange={e => setUsername(e.target.value)}
           />
@@ -61,7 +71,7 @@ const Register = () => {
           />
           <label for="floatingPassword">Password</label>
         </div>
-        <button className="w-100 btn btn-lg btn-primary" type="submit">
+        <button className="w-100 btn btn-lg btn-primary" type="submit" onClick={submit}>
           Submit
         </button>
       </form>
