@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 // This will require to npm install axios
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 const User = (props) => (
   <tr>
     <td>{props.user.name}</td>
     <td>{props.user.points}</td>
+    <td>{props.user.potentialPoints}</td>
   </tr>
 );
 
@@ -72,6 +72,7 @@ export default class Leaderboard extends Component {
               <tr>
                 <th>Name</th>
                 <th>Points</th>
+                <th>Potential Points</th>
               </tr>
             </thead>
             <tbody>{this.userList()}</tbody>
