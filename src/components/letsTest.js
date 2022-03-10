@@ -1,6 +1,6 @@
 import React, { SyntheticEvent, useState } from "react";
 
-const Test = () => {
+const LetsTest = () => {
     const [username, setUsername] = useState('');
 
   const submit = async (e) => {
@@ -39,4 +39,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default LetsTest;

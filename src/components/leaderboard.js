@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-// This will require to npm install axios
+import React, { Component, useEffect } from "react";
 import axios from "axios";
+// This will require to npm install axios
 
 const User = (props) => (
   <tr>
@@ -17,7 +17,7 @@ const Game = (props) => (
   </tr>
 );
 
-export default class Leaderboard extends Component {
+class Leaderboard extends Component {
   // This is the constructor that shall store our data retrieved from the database
   constructor(props) {
     super(props);
@@ -83,3 +83,5 @@ export default class Leaderboard extends Component {
     );
   }
 }
+
+export default Leaderboard

@@ -34,6 +34,14 @@ html, body, body > div, .app {
   color: rgb(80, 146, 233);
 }
 
+.embed {
+  border: 3px solid #165cdd;
+}
+
+.embed-outside {
+  padding: 5%;
+}
+
 .form-signin {
   width: 100%;
   max-width: 330px;
@@ -61,6 +69,7 @@ html, body, body > div, .app {
   border-top-right-radius: 0;
 }
 
+
 h2 {
   text-align: center;
 }
@@ -78,6 +87,14 @@ img {
 
 .labels {
   margin: 0%;
+}
+  
+.bracket {
+  width:fit-content;
+}
+
+.launch-page-padding {
+  padding-top: 30px;;
 }
 
 .leaderboard {
@@ -102,6 +119,7 @@ img {
   width: 100%;
   padding: 15px;
 }
+
 
 nav {
   font-family: 'Quicksand', sans-serif;
@@ -228,4 +246,12 @@ table {
 
 .table-num {
   width: 1px;
+}
+
+.or {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  text-align: center;
 }
