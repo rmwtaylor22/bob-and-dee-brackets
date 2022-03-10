@@ -2,6 +2,7 @@ import React from "react";
 
 // We import bootstrap to make our application look better.
 import "bootstrap/dist/css/bootstrap.css";
+import "../App.css";
 
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
@@ -17,42 +18,28 @@ const Navbar = () => {
   }
 
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <NavLink className="navbar-brand" to="/">
-          Bob and D <br></br>Brackets
-        </NavLink>
-        <div>
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <Link className="nav-link" to="/">
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/create">
-                Register
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/bracket">
-                Bracket
-              </Link>
-            </li>
-            {/* <li className="nav-item">
-              <Link className="nav-link" to="/letsTest">
-                Test
-              </Link>
-            </li> */}
-            <li className="nav-item logout">
-            <button className="w-100 btn btn-lg btn-primary" onClick={logout}>
-              Logout
-            </button>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+    <nav class="navbar navbar-expand navbar-dark bg-dark sticky-top">
+      <img src={require("./ball.png")} width={"80px"}></img>
+      <NavLink className="navbar-brand" to="/">
+        <span class="larger">Bob & D</span>
+        <br></br>
+        <span class="nav-tilt">brackets</span>
+      </NavLink>
+      <div>
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item pd-sm">
+            <Link className="nav-link" to="/">
+              Leaderboard
+            </Link>
+          </li>
+          <li className="nav-item pd-sm">
+            <Link className="nav-link" to="/bracket">
+              Bracket
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 };
 

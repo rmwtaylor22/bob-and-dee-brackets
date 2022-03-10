@@ -1,102 +1,87 @@
-/* import React, { Component, useEffect } from "react";
-// This will require to npm install axios
-
-const Leaderboard = () => {
-
-
-  return <h1>Hello world</h1>
-}
-
-export default Leaderboard
- */
-
-import React, { Component } from "react";
-// This will require to npm install axios
+import React, { Component, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// This will require to npm install axios
 
 const User = (props) => (
   <tr>
     <td>{props.user.name}</td>
-    <td>{props.user.username}</td>
-    <td>{props.user.password}</td>
     <td>{props.user.points}</td>
-    <td>
-      <Link to={"/edit/" + props.user._id}>Edit</Link> |
-      <a
-        href="/"
-        onClick={() => {
-          props.deleteUser(props.user._id);
-        }}
-      >
-        Delete
-      </a>
-    </td>
+    <td>{props.user.potentialPoints}</td>
   </tr>
 );
 
-export default class Leaderboard extends Component {
+const Game = (props) => (
+  <tr>
+    <td>{props.user.teamA.name}</td>
+    <td>{props.user.teamB.name}</td>
+  </tr>
+);
+
+class Leaderboard extends Component {
   // This is the constructor that shall store our data retrieved from the database
   constructor(props) {
     super(props);
-    this.deleteUser = this.deleteUser.bind(this);
-    this.state = { users: [] };
+    this.state = { users: [], winners: [] };
   }
 
   // This method will get the data from the database.
   componentDidMount() {
     axios
-      .get("http://localhost:5000/user/")
+      .get("http://localhost:5000/picks/")
       .then((response) => {
         this.setState({ users: response.data });
       })
       .catch(function (error) {
         console.log(error);
       });
-  }
-
-  // This method will delete a user based on the method
-  deleteUser(id) {
-    axios.delete("http://localhost:5000/" + id).then((response) => {
-      console.log(response.data);
-    });
-
-    this.setState({
-      user: this.state.users.filter((el) => el._id !== id),
-    });
+    axios
+      .get("http://localhost:5000/games/won")
+      .then((response) => {
+        this.setState({ winners: response.data });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   // This method will map out the users on the table
   userList() {
     return this.state.users.map((currentuser) => {
-      return (
-        <User
-          user={currentuser}
-          deleteUser={this.deleteUser}
-          key={currentuser._id}
-        />
-      );
+      return <User user={currentuser} key={currentuser._id} />;
+    });
+  }
+
+  winnersList() {
+    return this.state.winners.map((currentuser) => {
+      return <Game user={currentuser} key={currentuser._id} />;
     });
   }
 
   // This following section will display the table with the users of individuals.
   render() {
     return (
-      <div className="leaderboard">
-        <h3>Leaderboard</h3>
-        <table className="table table-striped" style={{ marginTop: 20 }}>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Username</th>
-              <th>Password</th>
-              <th>Points</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>{this.userList()}</tbody>
-        </table>
+      <div className="leaderboard-container">
+        {/* <div className="leaderboard-image bob"><img src={require("./bob2.png")} width={"245px"} height={"245px"}></img></div> */}
+        <div className="leaderboard panel panel-default">
+          <h3>Leaderboard <span className="refresh">(Refresh page for latest scores)</span></h3>
+          <table
+            className="table table-striped table-dark table-bordered"
+            style={{ marginTop: 20 }}
+          >
+            <thead className="thead-dark">
+              <tr>
+                <th>Name</th>
+                <th>Points</th>
+                <th>Potential Points</th>
+              </tr>
+            </thead>
+            <tbody>{this.userList()}</tbody>
+          </table>
+        </div>
+        {/* <div className="leaderboard-image donna"><img src={require("./donna.png")} width={"245px"} height={"245px"}></img></div> */}
       </div>
     );
   }
 }
+
+export default Leaderboard
