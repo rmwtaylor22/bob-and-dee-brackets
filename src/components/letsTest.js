@@ -4,7 +4,7 @@ const LetsTest = () => {
     const [username, setUsername] = useState('');
 
   const submit = async (e) => {
-    const response = await fetch("https://localhost:8000/user/username", {
+    const response = await fetch("https://bob-dee-brackets.onrender.com/user/username", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

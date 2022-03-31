@@ -228,7 +228,7 @@ export default class Bracket extends Component {
       },
     };
 
-    axios.post("http://localhost:5000/user/add", newperson).then((res) => {
+    axios.post("https://bob-dee-brackets.onrender.com/user/add", newperson).then((res) => {
       console.log(res.data.status);
       if (res.data.status === "ok") {
         alert("Bracket submitted!");
@@ -242,7 +242,7 @@ export default class Bracket extends Component {
   // This method will get the data from the database.
   componentDidMount() {
     axios
-      .get("http://localhost:5000/games/west")
+      .get("https://bob-dee-brackets.onrender.com/games/west")
       .then((response) => {
         this.setState({ gamesWest: response.data });
       })
@@ -251,7 +251,7 @@ export default class Bracket extends Component {
       });
 
     axios
-      .get("http://localhost:5000/games/east")
+      .get("https://bob-dee-brackets.onrender.com/games/east")
       .then((response) => {
         this.setState({ gamesEast: response.data });
       })
@@ -259,7 +259,7 @@ export default class Bracket extends Component {
         console.log(error);
       });
     axios
-      .get("http://localhost:5000/games/south")
+      .get("https://bob-dee-brackets.onrender.com/games/south")
       .then((response) => {
         this.setState({ gamesSouth: response.data });
       })
@@ -267,7 +267,7 @@ export default class Bracket extends Component {
         console.log(error);
       });
     axios
-      .get("http://localhost:5000/games/midwest")
+      .get("https://bob-dee-brackets.onrender.com/games/midwest")
       .then((response) => {
         this.setState({ gamesMidwest: response.data });
       })

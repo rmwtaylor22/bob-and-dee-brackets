@@ -27,7 +27,7 @@ class Leaderboard extends Component {
   // This method will get the data from the database.
   componentDidMount() {
     axios
-      .get("http://localhost:5000/picks/")
+      .get("https://bob-dee-brackets.onrender.com/picks/")
       .then((response) => {
         this.setState({ users: response.data });
       })
@@ -35,7 +35,7 @@ class Leaderboard extends Component {
         console.log(error);
       });
     axios
-      .get("http://localhost:5000/games/won")
+      .get("https://bob-dee-brackets.onrender.com/games/won")
       .then((response) => {
         this.setState({ winners: response.data });
       })

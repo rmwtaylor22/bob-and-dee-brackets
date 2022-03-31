@@ -10,7 +10,7 @@ function Create() {
   
     async function registerUser (event) {
       event.preventDefault()
-      const response = await fetch('http://localhost:1337/api/user/register', {
+      const response = await fetch('https://bob-dee-brackets.onrender.com/api/user/register', {
       method: 'POST',  
       headers: {
           'Content-Type': 'application/json',

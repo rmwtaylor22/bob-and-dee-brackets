@@ -14,7 +14,7 @@ const Register = () => {
   const submit = async(e) => {
     e.preventDefault();
 
-    const response = await fetch("https://localhost:8000/user/register", {
+    const response = await fetch("https://bob-dee-brackets.onrender.com/user/register", {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
