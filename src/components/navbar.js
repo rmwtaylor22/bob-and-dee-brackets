@@ -11,15 +11,9 @@ import { Link } from "react-router-dom";
 // Here, we display our Navbar
 const Navbar = () => {
 
-  const logout = () =>{
-    window.sessionStorage.clear();
-    window.location.reload(false);
-    //window.location.href = baseUr + "login";
-  }
-
   return (
     <nav class="navbar navbar-expand navbar-dark bg-dark sticky-top">
-      <img src={require("./ball.png")} width={"80px"}></img>
+      <img src={require("./ball.png")} width={"80px"} alt='ball'></img>
       <NavLink className="navbar-brand" to="/">
         <span class="larger">Bob & D</span>
         <br></br>

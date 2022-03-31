@@ -230,7 +230,7 @@ export default class Bracket extends Component {
 
     axios.post("http://localhost:5000/user/add", newperson).then((res) => {
       console.log(res.data.status);
-      if (res.data.status == "ok") {
+      if (res.data.status === "ok") {
         alert("Bracket submitted!");
         window.location = "/";
       } else {
@@ -573,7 +573,6 @@ export default class Bracket extends Component {
   render() {
     return (
       <form onSubmit={this.onSubmit}>
-        <h1 className="bracket-page-title"></h1>
         <div className="bracket-container">
           <div className="bracket-column names">
             <table>
